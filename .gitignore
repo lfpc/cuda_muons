@@ -1,0 +1,26 @@
+# Ignore __pycache__ directories
+__pycache__/
+
+# Ignore .DS_Store files
+.DS_Store
+
+# Ignore cpp/cmake-build-debug directory
+cpp/cmake-build-debug/
+cpp/build/*
+# Ignore plots directory
+plots/*.png
+!plots/shield.png
+
+# Ignore data directory
+data/full_sample/*.h5
+data/muons/*.pkl
+data/muons/*.npy
+data/muons/*.h5
+data/outputs/*
+data/magnet_params.csv
+cuda_muons/data/*.pkl
+!cuda_muons/data/alias_histograms*.pkl
+cuda_muons/data/*.npy
+cuda_muons/data/*.h5
+cuda_muons/plots/*
+*.egg-info
