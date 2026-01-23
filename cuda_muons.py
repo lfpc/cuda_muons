@@ -39,7 +39,7 @@ def propagate_muons_with_cuda(
     hist_2d_bin_centers_second_dim_concrete,
     hist_2d_bin_widths_first_dim_concrete,
     hist_2d_bin_widths_second_dim_concrete,
-    magnetic_field:dict,
+    magnetic_field,  # Either a dict (field map) or a tensor of shape (N_arb8s, 3) for uniform field per block
     sensitive_plane_z: float = 82,
     num_steps=100,
     step_length_fixed=0.02,
@@ -69,24 +69,41 @@ def propagate_muons_with_cuda(
     arb8_corners = arb8_corners.float().to(device)
     cavern_params = cavern_params.float().to(device)
 
-    magnetic_field_B = torch.from_numpy(magnetic_field['B'])
-    magnetic_field_ranges = [magnetic_field['range_x'][0], magnetic_field['range_x'][1],
-                             magnetic_field['range_y'][0], magnetic_field['range_y'][1],
-                             magnetic_field['range_z'][0], magnetic_field['range_z'][1]]
-    nx = int(round((magnetic_field_ranges[1] - magnetic_field_ranges[0]) / magnetic_field['range_x'][2])) + 1
-    ny = int(round((magnetic_field_ranges[3] - magnetic_field_ranges[2]) / magnetic_field['range_y'][2])) + 1
-    nz = int(round((magnetic_field_ranges[5] - magnetic_field_ranges[4]) / magnetic_field['range_z'][2])) + 1
-    magnetic_field_B = magnetic_field_B.view(nx, ny, nz, 3).float().to(device).contiguous()
-    magnetic_field_ranges = torch.tensor([magnetic_field_ranges]).div(100).float().cpu().contiguous()
-    
     kill_at = 0.18
-    assert not magnetic_field_B.isnan().any(), "Magnetic field contains NaN values."
     assert not arb8_corners.isnan().any(), "Arb8 corners contain NaN values."
-    
 
+    # Check if magnetic_field is a dict (field map) or tensor (uniform field per ARB8)
+    use_field_map = isinstance(magnetic_field, dict)
+
+    if use_field_map:
+        # Field map mode: magnetic_field is a dict with 'B' and range info
+        magnetic_field_B = torch.from_numpy(magnetic_field['B'])
+        magnetic_field_ranges = [magnetic_field['range_x'][0], magnetic_field['range_x'][1],
+                                 magnetic_field['range_y'][0], magnetic_field['range_y'][1],
+                                 magnetic_field['range_z'][0], magnetic_field['range_z'][1]]
+        nx = int(round((magnetic_field_ranges[1] - magnetic_field_ranges[0]) / magnetic_field['range_x'][2])) + 1
+        ny = int(round((magnetic_field_ranges[3] - magnetic_field_ranges[2]) / magnetic_field['range_y'][2])) + 1
+        nz = int(round((magnetic_field_ranges[5] - magnetic_field_ranges[4]) / magnetic_field['range_z'][2])) + 1
+        magnetic_field_B = magnetic_field_B.view(nx, ny, nz, 3).float().to(device).contiguous()
+        magnetic_field_ranges = torch.tensor([magnetic_field_ranges]).div(100).float().cpu().contiguous()
+        
+        assert not magnetic_field_B.isnan().any(), "Magnetic field contains NaN values."
+        
+        cuda_muons_fn = faster_muons_torch.propagate_muons_with_alias_sampling
+        field_args = (magnetic_field_B, magnetic_field_ranges)
+    else:
+        # Uniform field mode: magnetic_field is a tensor of shape (N_arb8s, 3)
+        arb8s_fields = magnetic_field.float().to(device).contiguous()
+        assert arb8s_fields.shape[0] == arb8_corners.shape[0], \
+            f"arb8s_fields must have the same number of ARB8s as arb8_corners. Got {arb8s_fields.shape[0]} vs {arb8_corners.shape[0]}"
+        assert arb8s_fields.shape[1] == 3, \
+            f"arb8s_fields must have shape (N, 3) for [Bx, By, Bz]. Got shape {arb8s_fields.shape}"
+        
+        cuda_muons_fn = faster_muons_torch.propagate_muons_with_alias_sampling_uniform_field
+        field_args = (arb8s_fields,)
 
     t1 = time.time()
-    faster_muons_torch.propagate_muons_with_alias_sampling(
+    cuda_muons_fn(
         muons_positions_cuda,
         muons_momenta_cuda,
         muons_charge,
@@ -102,11 +119,10 @@ def propagate_muons_with_cuda(
         hist_2d_bin_centers_second_dim_concrete,
         hist_2d_bin_widths_first_dim_concrete,
         hist_2d_bin_widths_second_dim_concrete,
-        magnetic_field_B,
-        magnetic_field_ranges,
         arb8_corners,
         cells_arb8,
         hashed_arb8,
+        *field_args,
         cavern_params,
         use_symmetry,
         sensitive_plane_z,
@@ -117,12 +133,13 @@ def propagate_muons_with_cuda(
     )
     
     torch.cuda.synchronize()
-    print("Took", time.time() - t1, "seconds for %.2e muons and %d steps." % (len(muons_positions_cuda), num_steps))
+    mode_str = "field map" if use_field_map else "uniform field"
+    print(f"Took {time.time() - t1:.3f} seconds for {len(muons_positions_cuda):.2e} muons and {num_steps} steps ({mode_str}).")
 
     # Convert results back to numpy arrays and return (on CPU)
     return muons_positions_cuda.cpu(), muons_momenta_cuda.cpu()
 
-def run(params,
+def run_from_params(params,
     muons:np.array,
         sensitive_plane={'dz': 0.02, 'dx': 4, 'dy': 6, 'position': 82.0},
         histogram_dir='cuda_muons/data',
@@ -165,17 +182,6 @@ def run(params,
     if muons_charge.abs().eq(13).all(): muons_charge = muons_charge.div(-13)
     assert muons_charge.abs().eq(1).all(), f"PDG IDs or charges in the input file are not correct. They should be either +/-13 or +/-1., {muons_charge.unique(return_counts=True)}" 
 
-    if SmearBeamRadius > 0: #ring transformation
-        raise ValueError("Target is not implemented. Do not use SmearBeamRadius > 0")
-        sigma = 1.6
-        gauss_x = torch.randn(muons_positions.size(0)) * sigma
-        gauss_y = torch.randn(muons_positions.size(0)) * sigma
-        uniform = torch.rand(muons_positions.size(0))
-        _phi = uniform * 2 * np.pi
-        dx = SmearBeamRadius * torch.cos(_phi) + gauss_x
-        dy = SmearBeamRadius * torch.sin(_phi) + gauss_y
-        muons_positions[:,0] = muons_positions[:,0] + (dx / 100)
-        muons_positions[:,1] = muons_positions[:,1] + (dy / 100)
     use_symmetry = True
     detector = get_design_from_params(params = params,
                       fSC_mag = fSC_mag,
@@ -190,9 +196,10 @@ def run(params,
                       use_diluted = use_diluted,
                       SND = SND,
                       cores_field = 8)
+    
     corners = get_corners_from_detector(detector, use_symmetry=use_symmetry)
     cavern = get_cavern(detector)
-    mag_dict = get_magnetic_field(detector)
+    mag_field = get_magnetic_field(detector)
     print(f"Field + Detector and corners setup took {time.time() - t0:.2f} seconds.")
 
 
@@ -225,7 +232,7 @@ def run(params,
             cavern,
             *histograms_iron,
             *histograms_concrete,
-            mag_dict,
+            mag_field,
             sensitive_plane_z - sensitive_plane['dz']/2,
             n_steps,
             step_length,

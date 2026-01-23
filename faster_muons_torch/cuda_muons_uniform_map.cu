@@ -147,6 +147,7 @@ struct ARB8_Data {
     float2 vertices_pos_z[4];
     float z_center;
     float dz;
+    float3 B_field;  // Uniform magnetic field for this block [Bx, By, Bz]
 };
 
 struct FieldMeta {
@@ -188,7 +189,8 @@ void load_arb8s_from_tensor(const at::Tensor& arb8s_tensor, std::vector<ARB8_Dat
     }
 }
 __global__ void fill_arb8s_kernel(
-    const float* arb8s_tensor, // shape (N,8,3), row-major, contiguous
+    const float* arb8s_tensor,     // shape (N,8,3), row-major, contiguous
+    const float* arb8s_fields,     // shape (N,3), magnetic field per ARB8 [Bx, By, Bz]
     ARB8_Data* arb8s_out,
     int N
 ) {
@@ -208,6 +210,10 @@ __global__ void fill_arb8s_kernel(
     float z_pos = verts[4*3 + 2];
     arb8s_out[i].z_center = 0.5f * (z_neg + z_pos);
     arb8s_out[i].dz = 0.5f * fabsf(z_pos - z_neg);
+
+    // Load magnetic field for this ARB8
+    const float* B = arb8s_fields + i * 3;
+    arb8s_out[i].B_field = make_float3(B[0], B[1], B[2]);
 }
 
 
@@ -398,8 +404,11 @@ __device__ MaterialType get_material(
     const int* cell_starts,      // Add these parameters
     const int* item_indices,     // Add these parameters
     const float* cavern_params,
-    const ZGridMeta& m
+    const ZGridMeta& m,
+    int* out_arb8_idx            // Output: index of ARB8 containing the point, or -1
 ) {
+    *out_arb8_idx = -1;  // Default: not inside any ARB8
+    
     if (
         (z <= cavern_params[4] && (x <= cavern_params[0] || x >= cavern_params[1] || y <= cavern_params[2] || y >= cavern_params[3])) ||
         (z > cavern_params[4] && (x <= cavern_params[5] || x >= cavern_params[6] || y <= cavern_params[7] || y >= cavern_params[8]))
@@ -409,9 +418,10 @@ __device__ MaterialType get_material(
     if (z >= m.z_max_global || z < m.z_min_global) {
         return MATERIAL_AIR;
     }
+    float lookup_x = x, lookup_y = y;
     if (_use_symmetry) {
-        x = fabsf(x);
-        y = fabsf(y);
+        lookup_x = fabsf(x);
+        lookup_y = fabsf(y);
     }
     int cell_idx = (int)((z - m.z_min_global) * m.z_cell_height_inv);
 
@@ -419,7 +429,8 @@ __device__ MaterialType get_material(
     int end_idx = cell_starts[cell_idx + 1];
     for (int i = start_idx; i < end_idx; ++i) {
         int arb8_idx = item_indices[i];
-        if (is_inside_arb8(x, y, z, arb8s[arb8_idx])) {
+        if (is_inside_arb8(lookup_x, lookup_y, z, arb8s[arb8_idx])) {
+            *out_arb8_idx = arb8_idx;
             return MATERIAL_IRON;
         }
     }
@@ -623,6 +634,42 @@ __device__ void rk4_step_cached(float pos[3], float mom[3],
     new_mom[0] = state[3]; new_mom[1] = state[4]; new_mom[2] = state[5];
 }
 
+// RK4 step with uniform magnetic field (no field map lookup)
+__device__ void rk4_step_uniform(float pos[3], float mom[3],
+              float charge, float step_length_fixed,
+              float3 B_uniform,
+              float new_pos[3], float new_mom[3])
+{
+    float state[6] = { pos[0], pos[1], pos[2], mom[0], mom[1], mom[2] };
+    float p_mag = sqrtf(mom[0]*mom[0] + mom[1]*mom[1] + mom[2]*mom[2]);
+    float energy = sqrtf(p_mag * p_mag + MUON_MASS * MUON_MASS);
+    float v_mag = (p_mag / energy) * c_speed_of_light;
+    float dt = step_length_fixed / v_mag;
+
+    float k1[6], k2[6], k3[6], k4[6];
+    float temp[6];
+
+    // Use uniform field throughout the step
+    derivative_cached(state, charge, B_uniform, k1, p_mag, energy);
+
+    for (int i = 0; i < 6; i++) temp[i] = state[i] + 0.5f * dt * k1[i];
+    derivative_cached(temp, charge, B_uniform, k2, p_mag, energy);
+
+    for (int i = 0; i < 6; i++) temp[i] = state[i] + 0.5f * dt * k2[i];
+    derivative_cached(temp, charge, B_uniform, k3, p_mag, energy);
+
+    for (int i = 0; i < 6; i++) temp[i] = state[i] + dt * k3[i];
+    derivative_cached(temp, charge, B_uniform, k4, p_mag, energy);
+
+    // Combine
+    for (int i = 0; i < 6; i++) {
+        state[i] += dt/6.0f * (k1[i] + 2.0f*k2[i] + 2.0f*k3[i] + k4[i]);
+    }
+
+    new_pos[0] = state[0]; new_pos[1] = state[1]; new_pos[2] = state[2];
+    new_mom[0] = state[3]; new_mom[1] = state[4]; new_mom[2] = state[5];
+}
+
 
 
 
@@ -641,7 +688,6 @@ __global__ void cuda_test_propagate_muons_k(float* muon_data_positions,
                                const float* hist_2d_bin_centers_second_dim_concrete,
                                const float* hist_2d_bin_widths_first_dim_concrete,
                                const float* hist_2d_bin_widths_second_dim_concrete,
-                               const float* magnetic_field,
                                const float sensitive_plane_z,
                                const float kill_at,
                                const int N,
@@ -649,7 +695,6 @@ __global__ void cuda_test_propagate_muons_k(float* muon_data_positions,
                                const ARB8_Data* arb8s,
                                const int* hashed3d_arb8s_cells,
                                const int* hashed3d_arb8s_indices,
-                               const FieldMeta field_meta,
                                const ZGridMeta grid_meta,
                                const float* cavern_params,
                                int num_steps,
@@ -692,15 +737,17 @@ __global__ void cuda_test_propagate_muons_k(float* muon_data_positions,
         // 2. Generate a uniform random number in [0, 1] for sampling from CDF
         float rand_value = curand_uniform(&state);
 
+        int current_arb8_idx;
         MaterialType material = get_material(
             muon_data_positions_this_cached[0],
-           muon_data_positions_this_cached[1],
+            muon_data_positions_this_cached[1],
             muon_data_positions_this_cached[2],
             arb8s,
             hashed3d_arb8s_cells, 
             hashed3d_arb8s_indices,
             cavern_params,
-            grid_meta
+            grid_meta,
+            &current_arb8_idx
         );
 
         float delta = 0.0f;
@@ -769,16 +816,23 @@ __global__ void cuda_test_propagate_muons_k(float* muon_data_positions,
         }
         if (muon_data_positions_this_cached[0] >= (cavern_params[5]+BIG_STEP) && (muon_data_positions_this_cached[0] <= (cavern_params[6]-BIG_STEP))
             && (muon_data_positions_this_cached[1] >= (cavern_params[7]+BIG_STEP)) && (muon_data_positions_this_cached[1] <= (cavern_params[8]-BIG_STEP))
-            && (muon_data_positions_this_cached[2] >= grid_meta.z_max_global) && (muon_data_positions_this_cached[2] >= field_meta.endZ)
+            && (muon_data_positions_this_cached[2] >= grid_meta.z_max_global)
             && (muon_data_positions_this_cached[2] <= sensitive_plane_z - BIG_STEP)) {
             step_length = BIG_STEP;
         } else {step_length = step_length_fixed;}
 
-        rk4_step_cached(muon_data_positions_this_cached, muon_data_momenta_this_cached,
+        // Get uniform magnetic field from ARB8 block, or zero if outside
+        float3 B_uniform;
+        if (current_arb8_idx >= 0) {
+            B_uniform = arb8s[current_arb8_idx].B_field;
+        } else {
+            B_uniform = make_float3(0.0f, 0.0f, 0.0f);
+        }
+
+        rk4_step_uniform(muon_data_positions_this_cached, muon_data_momenta_this_cached,
               charge_this_cached, step_length,
-              magnetic_field,
-              muon_data_positions_this_cached, muon_data_momenta_this_cached,
-              field_meta);
+              B_uniform,
+              muon_data_positions_this_cached, muon_data_momenta_this_cached);
         if (sensitive_plane_z >= 0 && (muon_data_positions_this_cached[2] >= sensitive_plane_z)) {
             break;
         }
@@ -793,7 +847,7 @@ __global__ void cuda_test_propagate_muons_k(float* muon_data_positions,
 }
 
 
-void propagate_muons_with_alias_sampling_cuda(
+void propagate_muons_with_alias_sampling_cuda_uniform_field(
     torch::Tensor muon_data_positions,
     torch::Tensor muon_data_momenta,
     torch::Tensor charges,
@@ -809,11 +863,10 @@ void propagate_muons_with_alias_sampling_cuda(
     torch::Tensor hist_2d_bin_centers_second_dim_concrete,
     torch::Tensor hist_2d_bin_widths_first_dim_concrete,
     torch::Tensor hist_2d_bin_widths_second_dim_concrete,
-    torch::Tensor magnetic_field,
-    torch::Tensor magnetic_field_range,
     torch::Tensor arb8s,
     torch::Tensor hashed3d_arb8s_cells,
     torch::Tensor hashed3d_arb8s_indices,
+    torch::Tensor arb8s_fields, 
     torch::Tensor cavern_params,
     bool use_symmetry,
     float sensitive_plane_z,
@@ -822,7 +875,9 @@ void propagate_muons_with_alias_sampling_cuda(
     float step_length_fixed,
     int seed
 ) {
-    TORCH_CHECK(magnetic_field_range.size(1) == 6, "Expected the second dimension of magnetic_field_range to be 6, but got ", magnetic_field_range.size(1));
+    TORCH_CHECK(arb8s_fields.size(0) == arb8s.size(0), "arb8s_fields must have the same number of ARB8s as arb8s");
+    TORCH_CHECK(arb8s_fields.size(1) == 3, "arb8s_fields must have shape (N, 3) for [Bx, By, Bz]");
+    
     const auto N = muon_data_positions.size(0);
     const auto H_2D = hist_2d_probability_table_iron.size(1);
 
@@ -831,26 +886,6 @@ void propagate_muons_with_alias_sampling_cuda(
     // Define grid and block sizes
     const int threads_per_block = BLOCK_SIZE;
     const int num_blocks = (N + threads_per_block - 1) / threads_per_block;
-
-    float* data_ptr_B = magnetic_field_range.data_ptr<float>();
-    FieldMeta magfield_data;
-    magfield_data.binsX = magnetic_field.size(0);
-    magfield_data.binsY = magnetic_field.size(1);
-    magfield_data.binsZ = magnetic_field.size(2);
-    magfield_data.startX = data_ptr_B[0];
-    magfield_data.endX   = data_ptr_B[1];
-    magfield_data.startY = data_ptr_B[2];
-    magfield_data.endY   = data_ptr_B[3];
-    magfield_data.startZ = data_ptr_B[4];
-    magfield_data.endZ   = data_ptr_B[5];
-    magfield_data.invX   = 1.0f / (magfield_data.endX - magfield_data.startX);
-    magfield_data.invY   = 1.0f / (magfield_data.endY - magfield_data.startY);
-    magfield_data.invZ   = 1.0f / (magfield_data.endZ - magfield_data.startZ);
-    magfield_data.stride_y  = magfield_data.binsX * magfield_data.binsZ;
-    cudaError_t _err = cudaMemcpyToSymbol(d_field_meta, &magfield_data, sizeof(FieldMeta));
-    if (_err != cudaSuccess) {
-        fprintf(stderr, "cudaMemcpyToSymbol(d_field_meta) failed: %s\n", cudaGetErrorString(_err));
-    }
 
     float log_start_val = log10f(0.18f);
     float log_stop_val = log10f(400.0f);
@@ -874,6 +909,7 @@ void propagate_muons_with_alias_sampling_cuda(
     const int blocks = (N_arbs + threads - 1) / threads;
     fill_arb8s_kernel<<<blocks, threads>>>(
         arb8s.data_ptr<float>(),
+        arb8s_fields.data_ptr<float>(),
         arb8s_device,
         N_arbs
     );
@@ -917,7 +953,6 @@ void propagate_muons_with_alias_sampling_cuda(
         hist_2d_bin_centers_second_dim_concrete.data_ptr<float>(),
         hist_2d_bin_widths_first_dim_concrete.data_ptr<float>(),
         hist_2d_bin_widths_second_dim_concrete.data_ptr<float>(),
-        magnetic_field.data_ptr<float>(),
         sensitive_plane_z,
         kill_at,
         N,
@@ -925,7 +960,6 @@ void propagate_muons_with_alias_sampling_cuda(
         arb8s_device,
         hashed3d_arb8s_cells.data_ptr<int>(),
         hashed3d_arb8s_indices.data_ptr<int>(),
-        magfield_data,
         grid_data,
         cavern_params.data_ptr<float>(),
         num_steps,
