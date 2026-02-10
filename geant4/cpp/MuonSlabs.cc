@@ -59,13 +59,11 @@ void simulate_muon(double px, double py, double pz, int charge,
     ui_manager->ApplyCommand(std::string("/run/beamOn ") + std::to_string(1));
 }
 
-// DEPRECATED. Use collect_from_multiple_sensitive() instead.
-/*py::dict collect_from_sensitive() {
-    auto detector2 = dynamic_cast<GDetectorConstruction*>(detector);
+py::dict collect_from_sensitive() {
+    auto detector2 = dynamic_cast<DetectorConstruction*>(detector);
     if (detector2 == nullptr) {
-        throw std::runtime_error("Sensitive film only possible for GDetectorConstruction.");
+        throw std::runtime_error("Sensitive film only possible for DetectorConstruction.");
     }
-
     if (detector2->slimFilmSensitiveDetector == nullptr) {
         throw std::runtime_error("Slim film not installed in the detector.");
     }
@@ -115,58 +113,8 @@ void simulate_muon(double px, double py, double pz, int charge,
     );
 
     return d;
-}*/
-
-py::dict collect_from_multiple_sensitive() {
-    DetectorConstruction* detector2 = nullptr;
-    detector2 = dynamic_cast<GDetectorConstruction*>(detector);
-    if (!detector2) {
-        detector2 = dynamic_cast<DetectorConstruction*>(detector);
-    }
-    if (!detector2) {
-        throw std::runtime_error("Sensitive film only possible for DetectorConstruction or GDetectorConstruction.");
-    }
-
-    const auto& detectors = detector2->slimFilmSensitiveDetectors;
-    if (detectors.empty()) {
-        throw std::runtime_error("No slim film sensitive detectors installed.");
-    }
-
-    std::vector<double> all_px, all_py, all_pz;
-    std::vector<double> all_x, all_y, all_z;
-    std::vector<int> all_trackId, all_pdgid;
-    std::vector<double> all_time;
-    std::vector<int> all_reference;
-
-    for (size_t i = 0; i < detectors.size(); ++i) {
-        const auto& sd = detectors[i];
-        all_px.insert(all_px.end(), sd->px.begin(), sd->px.end());
-        all_py.insert(all_py.end(), sd->py.begin(), sd->py.end());
-        all_pz.insert(all_pz.end(), sd->pz.begin(), sd->pz.end());
-        all_x.insert(all_x.end(), sd->x.begin(), sd->x.end());
-        all_y.insert(all_y.end(), sd->y.begin(), sd->y.end());
-        all_z.insert(all_z.end(), sd->z.begin(), sd->z.end());
-        all_trackId.insert(all_trackId.end(), sd->trackId.begin(), sd->trackId.end());
-        all_pdgid.insert(all_pdgid.end(), sd->pid.begin(), sd->pid.end());
-        all_time.insert(all_time.end(), sd->time.begin(), sd->time.end());
-        all_reference.insert(all_reference.end(), sd->trackId.size(), sd->getReference());
-    }
-
-    py::dict d = py::dict(
-        "px"_a = py::cast(all_px),
-        "py"_a = py::cast(all_py),
-        "pz"_a = py::cast(all_pz),
-        "x"_a = py::cast(all_x),
-        "y"_a = py::cast(all_y),
-        "z"_a = py::cast(all_z),
-        "track_id"_a = py::cast(all_trackId),
-        "pdg_id"_a = py::cast(all_pdgid),
-        "time"_a = py::cast(all_time),
-        "reference"_a = py::cast(all_reference)
-    );
-
-    return d;
 }
+
 
 py::dict collect() {
 
@@ -380,7 +328,7 @@ PYBIND11_MODULE(muon_slabs, m) {
     m.def("simulate_muon", &simulate_muon, "A function which simulates a muon through geant4 and returns the steps");
     m.def("initialize", &initialize, "Initialize geant4 stuff");
     m.def("collect", &collect, "Collect back the data");
-    m.def("collect_from_sensitive", &collect_from_multiple_sensitive, "Collect back the data from the sensitive film placed");
+    m.def("collect_from_sensitive", &collect_from_sensitive, "Collect back the data from the sensitive film placed");
     m.def("set_field_value", &set_field_value, "Set the magnetic field value");
     m.def("set_kill_momenta", &set_kill_momenta, "Set the kill momenta");
     m.def("set_max_steps", &set_max_steps, "Set max number of steps");

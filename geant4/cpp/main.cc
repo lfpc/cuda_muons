@@ -18,39 +18,7 @@
 #include "G4MuBremsstrahlung.hh"
 #include "G4PhysListFactory.hh"
 #include "G4ParticleTypes.hh"
-#include "BoxyDetectorConstruction.hh"
-#include "GDetectorConstruction.hh"
 
-
-
-
-//// Custom physics list (if needed)
-//class CustomPhysicsList : public G4VModularPhysicsList {
-//public:
-//    CustomPhysicsList() {
-//        G4PhysListFactory factory;
-//        SetPhysicsList(factory.GetReferencePhysList("FTFP_BERT"));
-//    }
-//
-//    void ConstructProcess() override {
-//        G4VModularPhysicsList::ConstructProcess();
-//
-//        // Get the particle definition for muons
-//        G4ParticleDefinition* muPlus = G4MuonPlus::MuonPlusDefinition();
-//        G4ParticleDefinition* muMinus = G4MuonMinus::MuonMinusDefinition();
-//
-//        // Get the process manager for muons
-//        G4ProcessManager* pManagerPlus = muPlus->GetProcessManager();
-//        G4ProcessManager* pManagerMinus = muMinus->GetProcessManager();
-//
-//        // Create the bremsstrahlung process
-//        G4MuBremsstrahlung* muBremsstrahlung = new G4MuBremsstrahlung();
-//
-//        // Add the process to the process manager
-//        pManagerPlus->AddDiscreteProcess(muBremsstrahlung);
-//        pManagerMinus->AddDiscreteProcess(muBremsstrahlung);
-//    }
-//};
 
 
 int main(int argc, char** argv)

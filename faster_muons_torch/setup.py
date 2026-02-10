@@ -49,7 +49,7 @@ cuda_kwargs = dict(
 extensions_cuda = [
     CUDAExtension(
         'faster_muons_torch',
-        ['bindings.cpp', 'my_extension.cu'],
+        ['bindings.cpp', 'common.cu', 'cuda_muons_field_map.cu', 'cuda_muons_uniform_field.cu'],
         **cuda_kwargs
         ),
     ]

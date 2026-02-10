@@ -2,6 +2,25 @@ import numpy as np
 import torch
 import h5py
 
+def get_sphere_design(mag_field, sens_film = None, material="G4_Fe"):
+    detector = {
+        # "worldPositionX": 0, "worldPositionY": 0, "worldPositionZ": 0, "worldSizeX": 11, "worldSizeY": 11,
+        # "worldSizeZ": 100,
+        # "magnets": magnets,
+        "material": material,
+        "magnetic_field": mag_field,
+        "type": 3,
+        "store_all": True,
+        "limits": {
+            "max_step_length": -1,
+            "minimum_kinetic_energy": -1
+        }
+    }
+    if sens_film is not None:
+        detector["sensitive_film"] = sens_film
+    return detector
+
+
 def get_corners_from_params(params: np.ndarray, fSC_mag: bool = False, NI_from_B: bool = True) -> torch.Tensor:
     """
     Build ARB8 corners directly from the magnet parameters, without going through
@@ -166,7 +185,7 @@ def get_corners_from_detector(detector, use_symmetry=True):
             all_corners.append(corners)
     return torch.from_numpy(np.array(all_corners))
 
-def get_cavern(detector):
+def get_cavern_from_detector(detector):
     if 'cavern' not in detector:
         return torch.tensor([[-30, 30, -30, 30, 0], [-30, 30, -30, 30, 0]], dtype=torch.float32)
     cavern = detector['cavern']

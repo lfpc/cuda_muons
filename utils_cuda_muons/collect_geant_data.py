@@ -7,12 +7,12 @@ import json
 import multiprocessing as mp
 import os
 from muon_slabs import simulate_muon, initialize, kill_secondary_tracks, collect_from_sensitive
-import lib.gigantic_sphere as sphere_design
+from get_geometry import get_sphere_design
 import functools
 
 
 # Function to simulate a batch of muons in a single
-def simulate_muon_batch(num_simulations, detector, step_size=0.02, single_step=False, initial_momenta_bounds=(10, 400)):
+def simulate_muon_batch(num_simulations, detector, initial_momenta_bounds=(10, 400)):
     np.random.seed((os.getpid() * int(time.time())) % 2**16)
     batch_data = {
         'initial_momenta': [],
@@ -49,7 +49,7 @@ def parallel_simulations(num_sims, detector, num_processes=4, step_size=0.02, ou
         grp.create_dataset('px', (num_sims,), dtype='f8')
         grp.create_dataset('py', (num_sims,), dtype='f8')
         grp.create_dataset('pz', (num_sims,), dtype='f8')
-        simulate_fn = functools.partial(simulate_muon_batch, detector=detector, step_size=step_size, single_step=single_step, initial_momenta_bounds=initial_momenta_bounds)
+        simulate_fn = functools.partial(simulate_muon_batch, detector=detector, initial_momenta_bounds=initial_momenta_bounds)
         chunk_size = num_sims // num_processes
         remainder = num_sims % num_processes
         chunks = [chunk_size + (1 if i < remainder else 0) for i in range(num_processes)]
@@ -74,7 +74,7 @@ def main(cores=16, num_sims=1_000_000, step_size=0.02, single_step = False, init
     if not os.path.exists(folder):
         os.makedirs(folder)
     sensitive_film = {"name": "SensitiveFilm", "radius": step_size, "dr": 0.001, "shape": "sphere"}
-    detector = sphere_design.get_design(mag_field = [0.,0.,0.], sens_film=sensitive_film, material=material)
+    detector = get_sphere_design(mag_field = [0.,0.,0.], sens_film=sensitive_film, material=material)
     detector["store_primary"] = False
     detector["store_all"] = False
     detector["limits"]["max_step_length"] = step_size

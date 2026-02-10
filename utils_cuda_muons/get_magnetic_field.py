@@ -13,12 +13,12 @@ import multiprocessing as mp
 from time import time
 from typing import Union, Dict
 from os.path import exists
+import pandas as pd
+from scipy.spatial import cKDTree
 
 # Try to import snoopy for FEM simulation (optional)
 try:
     import snoopy
-    import pandas as pd
-    from scipy.spatial import cKDTree
     SNOOPY_AVAILABLE = True
 except ImportError:
     SNOOPY_AVAILABLE = False
