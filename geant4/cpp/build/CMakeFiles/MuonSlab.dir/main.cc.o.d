@@ -1,5 +1,5 @@
 CMakeFiles/MuonSlab.dir/main.cc.o: \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/main.cc \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/main.cc \
  /usr/include/stdc-predef.h /usr/local/include/Geant4/G4RunManager.hh \
  /usr/local/include/Geant4/G4Event.hh /usr/include/c++/11/set \
  /usr/include/c++/11/bits/stl_tree.h \
@@ -663,24 +663,24 @@ CMakeFiles/MuonSlab.dir/main.cc.o: \
  /usr/local/include/Geant4/G4UIbatch.hh \
  /usr/local/include/Geant4/G4UIExecutive.hh \
  /usr/local/include/Geant4/G4VUIshell.hh \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/DetectorConstruction.hh \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/DetectorConstruction.hh \
  /usr/local/include/Geant4/G4UniformMagField.hh \
  /usr/local/include/Geant4/G4MagneticField.hh \
  /usr/local/include/Geant4/G4Field.hh \
  /usr/local/include/Geant4/G4VUserDetectorConstruction.hh \
  /usr/local/include/Geant4/G4VPhysicalVolume.hh \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/json.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/config.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/allocator.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/version.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/json_features.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/forwards.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/reader.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/value.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/writer.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/json.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/config.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/allocator.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/version.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/json_features.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/forwards.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/reader.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/value.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/writer.h \
  /usr/local/include/Geant4/G4UserLimits.hh \
  /usr/local/include/Geant4/G4UserLimits.icc \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/SlimFilmSensitiveDetector.hh \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/SlimFilmSensitiveDetector.hh \
  /usr/local/include/Geant4/G4VSensitiveDetector.hh \
  /usr/local/include/Geant4/G4CollectionNameVector.hh \
  /usr/local/include/Geant4/G4VReadOutGeometry.hh \
@@ -698,12 +698,12 @@ CMakeFiles/MuonSlab.dir/main.cc.o: \
  /usr/local/include/Geant4/G4ThreeVector.hh \
  /usr/local/include/Geant4/G4ParticleDefinition.hh \
  /usr/local/include/Geant4/G4VProcess.hh \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/PrimaryGeneratorAction.hh \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/PrimaryGeneratorAction.hh \
  /usr/local/include/Geant4/G4VUserPrimaryGeneratorAction.hh \
  /usr/local/include/Geant4/G4ParticleGun.hh \
  /usr/local/include/Geant4/G4VPrimaryGenerator.hh \
  /usr/local/include/Geant4/G4Event.hh \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/CustomSteppingAction.hh \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/CustomSteppingAction.hh \
  /usr/local/include/Geant4/G4UserSteppingAction.hh \
  /usr/local/include/Geant4/globals.hh \
  /usr/local/include/Geant4/G4PhysicsListHelper.hh \
@@ -819,6 +819,4 @@ CMakeFiles/MuonSlab.dir/main.cc.o: \
  /usr/local/include/Geant4/G4AntiDeuteron.hh \
  /usr/local/include/Geant4/G4AntiHe3.hh \
  /usr/local/include/Geant4/G4AntiTriton.hh \
- /usr/local/include/Geant4/G4GenericIon.hh \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/BoxyDetectorConstruction.hh \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/GDetectorConstruction.hh
+ /usr/local/include/Geant4/G4GenericIon.hh

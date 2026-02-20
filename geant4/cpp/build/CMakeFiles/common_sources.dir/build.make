@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /disk/users/lprate/projects/MuonsAndMatter/cpp
+CMAKE_SOURCE_DIR = /disk/users/lprate/projects/cuda_muons/geant4/cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /disk/users/lprate/projects/MuonsAndMatter/cpp/build
+CMAKE_BINARY_DIR = /disk/users/lprate/projects/cuda_muons/geant4/cpp/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/common_sources.dir/depend.make
@@ -72,128 +72,86 @@ include CMakeFiles/common_sources.dir/flags.make
 CMakeFiles/common_sources.dir/DetectorConstruction.cc.o: CMakeFiles/common_sources.dir/flags.make
 CMakeFiles/common_sources.dir/DetectorConstruction.cc.o: ../DetectorConstruction.cc
 CMakeFiles/common_sources.dir/DetectorConstruction.cc.o: CMakeFiles/common_sources.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/common_sources.dir/DetectorConstruction.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/common_sources.dir/DetectorConstruction.cc.o -MF CMakeFiles/common_sources.dir/DetectorConstruction.cc.o.d -o CMakeFiles/common_sources.dir/DetectorConstruction.cc.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/DetectorConstruction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/common_sources.dir/DetectorConstruction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/common_sources.dir/DetectorConstruction.cc.o -MF CMakeFiles/common_sources.dir/DetectorConstruction.cc.o.d -o CMakeFiles/common_sources.dir/DetectorConstruction.cc.o -c /disk/users/lprate/projects/cuda_muons/geant4/cpp/DetectorConstruction.cc
 
 CMakeFiles/common_sources.dir/DetectorConstruction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/common_sources.dir/DetectorConstruction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /disk/users/lprate/projects/MuonsAndMatter/cpp/DetectorConstruction.cc > CMakeFiles/common_sources.dir/DetectorConstruction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /disk/users/lprate/projects/cuda_muons/geant4/cpp/DetectorConstruction.cc > CMakeFiles/common_sources.dir/DetectorConstruction.cc.i
 
 CMakeFiles/common_sources.dir/DetectorConstruction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/common_sources.dir/DetectorConstruction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /disk/users/lprate/projects/MuonsAndMatter/cpp/DetectorConstruction.cc -o CMakeFiles/common_sources.dir/DetectorConstruction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /disk/users/lprate/projects/cuda_muons/geant4/cpp/DetectorConstruction.cc -o CMakeFiles/common_sources.dir/DetectorConstruction.cc.s
 
 CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o: CMakeFiles/common_sources.dir/flags.make
 CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o: ../PrimaryGeneratorAction.cc
 CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o: CMakeFiles/common_sources.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o -MF CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o.d -o CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/PrimaryGeneratorAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o -MF CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o.d -o CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o -c /disk/users/lprate/projects/cuda_muons/geant4/cpp/PrimaryGeneratorAction.cc
 
 CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /disk/users/lprate/projects/MuonsAndMatter/cpp/PrimaryGeneratorAction.cc > CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /disk/users/lprate/projects/cuda_muons/geant4/cpp/PrimaryGeneratorAction.cc > CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.i
 
 CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /disk/users/lprate/projects/MuonsAndMatter/cpp/PrimaryGeneratorAction.cc -o CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /disk/users/lprate/projects/cuda_muons/geant4/cpp/PrimaryGeneratorAction.cc -o CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.s
 
 CMakeFiles/common_sources.dir/CustomSteppingAction.cc.o: CMakeFiles/common_sources.dir/flags.make
 CMakeFiles/common_sources.dir/CustomSteppingAction.cc.o: ../CustomSteppingAction.cc
 CMakeFiles/common_sources.dir/CustomSteppingAction.cc.o: CMakeFiles/common_sources.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/common_sources.dir/CustomSteppingAction.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/common_sources.dir/CustomSteppingAction.cc.o -MF CMakeFiles/common_sources.dir/CustomSteppingAction.cc.o.d -o CMakeFiles/common_sources.dir/CustomSteppingAction.cc.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/CustomSteppingAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/common_sources.dir/CustomSteppingAction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/common_sources.dir/CustomSteppingAction.cc.o -MF CMakeFiles/common_sources.dir/CustomSteppingAction.cc.o.d -o CMakeFiles/common_sources.dir/CustomSteppingAction.cc.o -c /disk/users/lprate/projects/cuda_muons/geant4/cpp/CustomSteppingAction.cc
 
 CMakeFiles/common_sources.dir/CustomSteppingAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/common_sources.dir/CustomSteppingAction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /disk/users/lprate/projects/MuonsAndMatter/cpp/CustomSteppingAction.cc > CMakeFiles/common_sources.dir/CustomSteppingAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /disk/users/lprate/projects/cuda_muons/geant4/cpp/CustomSteppingAction.cc > CMakeFiles/common_sources.dir/CustomSteppingAction.cc.i
 
 CMakeFiles/common_sources.dir/CustomSteppingAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/common_sources.dir/CustomSteppingAction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /disk/users/lprate/projects/MuonsAndMatter/cpp/CustomSteppingAction.cc -o CMakeFiles/common_sources.dir/CustomSteppingAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /disk/users/lprate/projects/cuda_muons/geant4/cpp/CustomSteppingAction.cc -o CMakeFiles/common_sources.dir/CustomSteppingAction.cc.s
 
 CMakeFiles/common_sources.dir/CustomEventAction.cc.o: CMakeFiles/common_sources.dir/flags.make
 CMakeFiles/common_sources.dir/CustomEventAction.cc.o: ../CustomEventAction.cc
 CMakeFiles/common_sources.dir/CustomEventAction.cc.o: CMakeFiles/common_sources.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/common_sources.dir/CustomEventAction.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/common_sources.dir/CustomEventAction.cc.o -MF CMakeFiles/common_sources.dir/CustomEventAction.cc.o.d -o CMakeFiles/common_sources.dir/CustomEventAction.cc.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/CustomEventAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/common_sources.dir/CustomEventAction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/common_sources.dir/CustomEventAction.cc.o -MF CMakeFiles/common_sources.dir/CustomEventAction.cc.o.d -o CMakeFiles/common_sources.dir/CustomEventAction.cc.o -c /disk/users/lprate/projects/cuda_muons/geant4/cpp/CustomEventAction.cc
 
 CMakeFiles/common_sources.dir/CustomEventAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/common_sources.dir/CustomEventAction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /disk/users/lprate/projects/MuonsAndMatter/cpp/CustomEventAction.cc > CMakeFiles/common_sources.dir/CustomEventAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /disk/users/lprate/projects/cuda_muons/geant4/cpp/CustomEventAction.cc > CMakeFiles/common_sources.dir/CustomEventAction.cc.i
 
 CMakeFiles/common_sources.dir/CustomEventAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/common_sources.dir/CustomEventAction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /disk/users/lprate/projects/MuonsAndMatter/cpp/CustomEventAction.cc -o CMakeFiles/common_sources.dir/CustomEventAction.cc.s
-
-CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.o: CMakeFiles/common_sources.dir/flags.make
-CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.o: ../BoxyDetectorConstruction.cc
-CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.o: CMakeFiles/common_sources.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.o -MF CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.o.d -o CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/BoxyDetectorConstruction.cc
-
-CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /disk/users/lprate/projects/MuonsAndMatter/cpp/BoxyDetectorConstruction.cc > CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.i
-
-CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /disk/users/lprate/projects/MuonsAndMatter/cpp/BoxyDetectorConstruction.cc -o CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.s
-
-CMakeFiles/common_sources.dir/GDetectorConstruction.cc.o: CMakeFiles/common_sources.dir/flags.make
-CMakeFiles/common_sources.dir/GDetectorConstruction.cc.o: ../GDetectorConstruction.cc
-CMakeFiles/common_sources.dir/GDetectorConstruction.cc.o: CMakeFiles/common_sources.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/common_sources.dir/GDetectorConstruction.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/common_sources.dir/GDetectorConstruction.cc.o -MF CMakeFiles/common_sources.dir/GDetectorConstruction.cc.o.d -o CMakeFiles/common_sources.dir/GDetectorConstruction.cc.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/GDetectorConstruction.cc
-
-CMakeFiles/common_sources.dir/GDetectorConstruction.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/common_sources.dir/GDetectorConstruction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /disk/users/lprate/projects/MuonsAndMatter/cpp/GDetectorConstruction.cc > CMakeFiles/common_sources.dir/GDetectorConstruction.cc.i
-
-CMakeFiles/common_sources.dir/GDetectorConstruction.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/common_sources.dir/GDetectorConstruction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /disk/users/lprate/projects/MuonsAndMatter/cpp/GDetectorConstruction.cc -o CMakeFiles/common_sources.dir/GDetectorConstruction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /disk/users/lprate/projects/cuda_muons/geant4/cpp/CustomEventAction.cc -o CMakeFiles/common_sources.dir/CustomEventAction.cc.s
 
 CMakeFiles/common_sources.dir/SlimFilm.cc.o: CMakeFiles/common_sources.dir/flags.make
 CMakeFiles/common_sources.dir/SlimFilm.cc.o: ../SlimFilm.cc
 CMakeFiles/common_sources.dir/SlimFilm.cc.o: CMakeFiles/common_sources.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/common_sources.dir/SlimFilm.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/common_sources.dir/SlimFilm.cc.o -MF CMakeFiles/common_sources.dir/SlimFilm.cc.o.d -o CMakeFiles/common_sources.dir/SlimFilm.cc.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/SlimFilm.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/common_sources.dir/SlimFilm.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/common_sources.dir/SlimFilm.cc.o -MF CMakeFiles/common_sources.dir/SlimFilm.cc.o.d -o CMakeFiles/common_sources.dir/SlimFilm.cc.o -c /disk/users/lprate/projects/cuda_muons/geant4/cpp/SlimFilm.cc
 
 CMakeFiles/common_sources.dir/SlimFilm.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/common_sources.dir/SlimFilm.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /disk/users/lprate/projects/MuonsAndMatter/cpp/SlimFilm.cc > CMakeFiles/common_sources.dir/SlimFilm.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /disk/users/lprate/projects/cuda_muons/geant4/cpp/SlimFilm.cc > CMakeFiles/common_sources.dir/SlimFilm.cc.i
 
 CMakeFiles/common_sources.dir/SlimFilm.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/common_sources.dir/SlimFilm.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /disk/users/lprate/projects/MuonsAndMatter/cpp/SlimFilm.cc -o CMakeFiles/common_sources.dir/SlimFilm.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /disk/users/lprate/projects/cuda_muons/geant4/cpp/SlimFilm.cc -o CMakeFiles/common_sources.dir/SlimFilm.cc.s
 
 CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.o: CMakeFiles/common_sources.dir/flags.make
 CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.o: ../SlimFilmSensitiveDetector.cc
 CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.o: CMakeFiles/common_sources.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.o -MF CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.o.d -o CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/SlimFilmSensitiveDetector.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.o -MF CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.o.d -o CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.o -c /disk/users/lprate/projects/cuda_muons/geant4/cpp/SlimFilmSensitiveDetector.cc
 
 CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /disk/users/lprate/projects/MuonsAndMatter/cpp/SlimFilmSensitiveDetector.cc > CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /disk/users/lprate/projects/cuda_muons/geant4/cpp/SlimFilmSensitiveDetector.cc > CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.i
 
 CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /disk/users/lprate/projects/MuonsAndMatter/cpp/SlimFilmSensitiveDetector.cc -o CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.s
-
-CMakeFiles/common_sources.dir/CustomMagneticField.cc.o: CMakeFiles/common_sources.dir/flags.make
-CMakeFiles/common_sources.dir/CustomMagneticField.cc.o: ../CustomMagneticField.cc
-CMakeFiles/common_sources.dir/CustomMagneticField.cc.o: CMakeFiles/common_sources.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/common_sources.dir/CustomMagneticField.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/common_sources.dir/CustomMagneticField.cc.o -MF CMakeFiles/common_sources.dir/CustomMagneticField.cc.o.d -o CMakeFiles/common_sources.dir/CustomMagneticField.cc.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/CustomMagneticField.cc
-
-CMakeFiles/common_sources.dir/CustomMagneticField.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/common_sources.dir/CustomMagneticField.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /disk/users/lprate/projects/MuonsAndMatter/cpp/CustomMagneticField.cc > CMakeFiles/common_sources.dir/CustomMagneticField.cc.i
-
-CMakeFiles/common_sources.dir/CustomMagneticField.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/common_sources.dir/CustomMagneticField.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /disk/users/lprate/projects/MuonsAndMatter/cpp/CustomMagneticField.cc -o CMakeFiles/common_sources.dir/CustomMagneticField.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /disk/users/lprate/projects/cuda_muons/geant4/cpp/SlimFilmSensitiveDetector.cc -o CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.s
 
 # Object files for target common_sources
 common_sources_OBJECTS = \
@@ -201,11 +159,8 @@ common_sources_OBJECTS = \
 "CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o" \
 "CMakeFiles/common_sources.dir/CustomSteppingAction.cc.o" \
 "CMakeFiles/common_sources.dir/CustomEventAction.cc.o" \
-"CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.o" \
-"CMakeFiles/common_sources.dir/GDetectorConstruction.cc.o" \
 "CMakeFiles/common_sources.dir/SlimFilm.cc.o" \
-"CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.o" \
-"CMakeFiles/common_sources.dir/CustomMagneticField.cc.o"
+"CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.o"
 
 # External object files for target common_sources
 common_sources_EXTERNAL_OBJECTS =
@@ -214,14 +169,11 @@ libcommon_sources.a: CMakeFiles/common_sources.dir/DetectorConstruction.cc.o
 libcommon_sources.a: CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o
 libcommon_sources.a: CMakeFiles/common_sources.dir/CustomSteppingAction.cc.o
 libcommon_sources.a: CMakeFiles/common_sources.dir/CustomEventAction.cc.o
-libcommon_sources.a: CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.o
-libcommon_sources.a: CMakeFiles/common_sources.dir/GDetectorConstruction.cc.o
 libcommon_sources.a: CMakeFiles/common_sources.dir/SlimFilm.cc.o
 libcommon_sources.a: CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.o
-libcommon_sources.a: CMakeFiles/common_sources.dir/CustomMagneticField.cc.o
 libcommon_sources.a: CMakeFiles/common_sources.dir/build.make
 libcommon_sources.a: CMakeFiles/common_sources.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library libcommon_sources.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libcommon_sources.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/common_sources.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/common_sources.dir/link.txt --verbose=$(VERBOSE)
 
@@ -234,6 +186,6 @@ CMakeFiles/common_sources.dir/clean:
 .PHONY : CMakeFiles/common_sources.dir/clean
 
 CMakeFiles/common_sources.dir/depend:
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /disk/users/lprate/projects/MuonsAndMatter/cpp /disk/users/lprate/projects/MuonsAndMatter/cpp /disk/users/lprate/projects/MuonsAndMatter/cpp/build /disk/users/lprate/projects/MuonsAndMatter/cpp/build /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/common_sources.dir/DependInfo.cmake --color=$(COLOR)
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /disk/users/lprate/projects/cuda_muons/geant4/cpp /disk/users/lprate/projects/cuda_muons/geant4/cpp /disk/users/lprate/projects/cuda_muons/geant4/cpp/build /disk/users/lprate/projects/cuda_muons/geant4/cpp/build /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/common_sources.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/common_sources.dir/depend
 

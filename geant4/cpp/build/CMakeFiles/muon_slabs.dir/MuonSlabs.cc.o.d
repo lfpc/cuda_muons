@@ -1,5 +1,5 @@
 CMakeFiles/muon_slabs.dir/MuonSlabs.cc.o: \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/MuonSlabs.cc \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/MuonSlabs.cc \
  /usr/include/stdc-predef.h \
  /usr/local/lib/python3.10/dist-packages/pybind11/include/pybind11/pybind11.h \
  /usr/local/lib/python3.10/dist-packages/pybind11/include/pybind11/detail/class.h \
@@ -687,27 +687,27 @@ CMakeFiles/muon_slabs.dir/MuonSlabs.cc.o: \
  /usr/local/include/Geant4/G4UItokenNum.hh \
  /usr/local/include/Geant4/G4UserTrackingAction.hh \
  /usr/local/include/Geant4/G4RunManagerKernel.hh \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/CustomSteppingAction.hh \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/CustomSteppingAction.hh \
  /usr/local/include/Geant4/G4UserSteppingAction.hh \
  /usr/local/include/Geant4/globals.hh \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/DetectorConstruction.hh \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/DetectorConstruction.hh \
  /usr/local/include/Geant4/G4UniformMagField.hh \
  /usr/local/include/Geant4/G4MagneticField.hh \
  /usr/local/include/Geant4/G4Field.hh \
  /usr/local/include/Geant4/G4VUserDetectorConstruction.hh \
  /usr/local/include/Geant4/G4VPhysicalVolume.hh \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/json.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/config.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/allocator.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/version.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/json_features.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/forwards.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/reader.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/value.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/writer.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/json.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/config.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/allocator.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/version.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/json_features.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/forwards.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/reader.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/value.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/writer.h \
  /usr/local/include/Geant4/G4UserLimits.hh \
  /usr/local/include/Geant4/G4UserLimits.icc \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/SlimFilmSensitiveDetector.hh \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/SlimFilmSensitiveDetector.hh \
  /usr/local/include/Geant4/G4VSensitiveDetector.hh \
  /usr/local/include/Geant4/G4CollectionNameVector.hh \
  /usr/local/include/Geant4/G4VHit.hh \
@@ -729,8 +729,8 @@ CMakeFiles/muon_slabs.dir/MuonSlabs.cc.o: \
  /usr/local/include/Geant4/G4UIcommandStatus.hh \
  /usr/local/include/Geant4/G4VStateDependent.hh \
  /usr/local/include/Geant4/icomsdefs.hh \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/PrimaryGeneratorAction.cc \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/PrimaryGeneratorAction.hh \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/PrimaryGeneratorAction.cc \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/PrimaryGeneratorAction.hh \
  /usr/local/include/Geant4/G4VUserPrimaryGeneratorAction.hh \
  /usr/local/include/Geant4/G4ParticleGun.hh \
  /usr/local/include/Geant4/G4VPrimaryGenerator.hh \
@@ -743,9 +743,8 @@ CMakeFiles/muon_slabs.dir/MuonSlabs.cc.o: \
  /usr/local/include/Geant4/G4MaterialCutsCouple.hh \
  /usr/local/include/Geant4/G4ProductionCuts.hh \
  /usr/local/include/Geant4/G4MCCIndexConversionTable.hh \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/CustomEventAction.hh \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/CustomEventAction.hh \
  /usr/local/include/Geant4/G4UserEventAction.hh \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/BoxyDetectorConstruction.hh \
  /usr/local/lib/python3.10/dist-packages/pybind11/include/pybind11/numpy.h \
  /usr/local/lib/python3.10/dist-packages/pybind11/include/pybind11/complex.h \
  /usr/local/lib/python3.10/dist-packages/pybind11/include/pybind11/stl.h \
@@ -761,5 +760,4 @@ CMakeFiles/muon_slabs.dir/MuonSlabs.cc.o: \
  /usr/local/include/Geant4/G4UIExecutive.hh \
  /usr/local/include/Geant4/G4VUIshell.hh \
  /usr/local/include/Geant4/QGSP_BERT.hh \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/GDetectorConstruction.hh \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/SlimFilm.hh
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/SlimFilm.hh

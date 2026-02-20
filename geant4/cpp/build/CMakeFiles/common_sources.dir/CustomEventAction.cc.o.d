@@ -1,7 +1,7 @@
 CMakeFiles/common_sources.dir/CustomEventAction.cc.o: \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/CustomEventAction.cc \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/CustomEventAction.cc \
  /usr/include/stdc-predef.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/CustomEventAction.hh \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/CustomEventAction.hh \
  /usr/local/include/Geant4/G4UserEventAction.hh \
  /usr/local/include/Geant4/globals.hh /usr/local/include/Geant4/G4ios.hh \
  /usr/local/include/Geant4/G4Types.hh \
@@ -231,7 +231,7 @@ CMakeFiles/common_sources.dir/CustomEventAction.cc.o: \
  /usr/include/c++/11/bits/parse_numbers.h \
  /usr/include/c++/11/bits/std_mutex.h \
  /usr/include/c++/11/bits/unique_lock.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/CustomSteppingAction.hh \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/CustomSteppingAction.hh \
  /usr/local/include/Geant4/G4UserSteppingAction.hh \
  /usr/local/include/Geant4/G4Event.hh /usr/include/c++/11/set \
  /usr/include/c++/11/bits/stl_set.h \

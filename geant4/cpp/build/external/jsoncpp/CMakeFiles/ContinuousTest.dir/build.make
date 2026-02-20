@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /disk/users/lprate/projects/MuonsAndMatter/cpp
+CMAKE_SOURCE_DIR = /disk/users/lprate/projects/cuda_muons/geant4/cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /disk/users/lprate/projects/MuonsAndMatter/cpp/build
+CMAKE_BINARY_DIR = /disk/users/lprate/projects/cuda_muons/geant4/cpp/build
 
 # Utility rule file for ContinuousTest.
 
@@ -67,7 +67,7 @@ include external/jsoncpp/CMakeFiles/ContinuousTest.dir/compiler_depend.make
 include external/jsoncpp/CMakeFiles/ContinuousTest.dir/progress.make
 
 external/jsoncpp/CMakeFiles/ContinuousTest:
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp && /usr/bin/ctest -D ContinuousTest
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp && /usr/bin/ctest -D ContinuousTest
 
 ContinuousTest: external/jsoncpp/CMakeFiles/ContinuousTest
 ContinuousTest: external/jsoncpp/CMakeFiles/ContinuousTest.dir/build.make
@@ -78,10 +78,10 @@ external/jsoncpp/CMakeFiles/ContinuousTest.dir/build: ContinuousTest
 .PHONY : external/jsoncpp/CMakeFiles/ContinuousTest.dir/build
 
 external/jsoncpp/CMakeFiles/ContinuousTest.dir/clean:
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp && $(CMAKE_COMMAND) -P CMakeFiles/ContinuousTest.dir/cmake_clean.cmake
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp && $(CMAKE_COMMAND) -P CMakeFiles/ContinuousTest.dir/cmake_clean.cmake
 .PHONY : external/jsoncpp/CMakeFiles/ContinuousTest.dir/clean
 
 external/jsoncpp/CMakeFiles/ContinuousTest.dir/depend:
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /disk/users/lprate/projects/MuonsAndMatter/cpp /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp /disk/users/lprate/projects/MuonsAndMatter/cpp/build /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/CMakeFiles/ContinuousTest.dir/DependInfo.cmake --color=$(COLOR)
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /disk/users/lprate/projects/cuda_muons/geant4/cpp /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp /disk/users/lprate/projects/cuda_muons/geant4/cpp/build /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/CMakeFiles/ContinuousTest.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : external/jsoncpp/CMakeFiles/ContinuousTest.dir/depend
 

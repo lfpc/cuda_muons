@@ -30,6 +30,7 @@
 #include "G4PropagatorInField.hh"
 #include "G4ClassicalRK4.hh"
 #include "SlimFilmSensitiveDetector.hh"
+#include "G4SDManager.hh"
 
 
 #include <iostream>
@@ -204,16 +205,16 @@ double DetectorConstruction::getDetectorWeight() {
 void DetectorConstruction::ConstructSDandField() {
     G4VUserDetectorConstruction::ConstructSDandField();
 
-
     // Attach the sensitive detector to the logical volume
     if (sensitiveLogical) {
         auto* sdManager = G4SDManager::GetSDMpointer();
 
         G4String sdName = "MySensitiveDetector";
-        auto slimFilmSensitiveDetector = new SlimFilmSensitiveDetector(sdName, 1, true);
-        sdManager->AddNewDetector(slimFilmSensitiveDetector);
+        if (!slimFilmSensitiveDetector) {
+            slimFilmSensitiveDetector = new SlimFilmSensitiveDetector(sdName);
+            sdManager->AddNewDetector(slimFilmSensitiveDetector);
+        }
         sensitiveLogical->SetSensitiveDetector(slimFilmSensitiveDetector);
-        slimFilmSensitiveDetectors.push_back(slimFilmSensitiveDetector);
         std::cout<<"Sensitive set...\n";
     }
 

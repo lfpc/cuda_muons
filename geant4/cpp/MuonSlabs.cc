@@ -14,12 +14,10 @@
 #include "PrimaryGeneratorAction.cc"
 #include "FTFP_BERT.hh"
 #include "CustomEventAction.hh"
-#include "BoxyDetectorConstruction.hh"
 #include <pybind11/numpy.h>
 #include <pybind11/stl.h>
 #include <G4UIExecutive.hh>
 #include "QGSP_BERT.hh"
-#include "GDetectorConstruction.hh"
 #include "SlimFilm.hh"
 #include "json/json.h"
 #include <iostream>
@@ -214,20 +212,9 @@ std::string initialize( int rseed_0,
 
         
 
-        int type = detectorData["type"].asInt();
         applyStepLimiter = (detectorData["limits"]["max_step_length"].asDouble() > 0);
-        if (type==3) {
-            detector = new DetectorConstruction(detectorData);
-        }
-        else if (type == 0)
-            detector = new BoxyDetectorConstruction(detectorData);
-        else if (type == 1)
-            detector = new GDetectorConstruction(detectorData);
-        else if (type == 2) {
-            detector = new SlimFilm(detectorData);
-        } else
-            throw std::runtime_error("Invalid detector type specified.");
-
+        detector = new DetectorConstruction(detectorData);
+        
         if (detectorData.isMember("store_all")) {
             storeAll = detectorData["store_all"].asBool();
         }

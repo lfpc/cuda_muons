@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /disk/users/lprate/projects/MuonsAndMatter/cpp
+CMAKE_SOURCE_DIR = /disk/users/lprate/projects/cuda_muons/geant4/cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /disk/users/lprate/projects/MuonsAndMatter/cpp/build
+CMAKE_BINARY_DIR = /disk/users/lprate/projects/cuda_muons/geant4/cpp/build
 
 # Utility rule file for ExperimentalCoverage.
 
@@ -67,7 +67,7 @@ include external/jsoncpp/CMakeFiles/ExperimentalCoverage.dir/compiler_depend.mak
 include external/jsoncpp/CMakeFiles/ExperimentalCoverage.dir/progress.make
 
 external/jsoncpp/CMakeFiles/ExperimentalCoverage:
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp && /usr/bin/ctest -D ExperimentalCoverage
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp && /usr/bin/ctest -D ExperimentalCoverage
 
 ExperimentalCoverage: external/jsoncpp/CMakeFiles/ExperimentalCoverage
 ExperimentalCoverage: external/jsoncpp/CMakeFiles/ExperimentalCoverage.dir/build.make
@@ -78,10 +78,10 @@ external/jsoncpp/CMakeFiles/ExperimentalCoverage.dir/build: ExperimentalCoverage
 .PHONY : external/jsoncpp/CMakeFiles/ExperimentalCoverage.dir/build
 
 external/jsoncpp/CMakeFiles/ExperimentalCoverage.dir/clean:
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp && $(CMAKE_COMMAND) -P CMakeFiles/ExperimentalCoverage.dir/cmake_clean.cmake
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp && $(CMAKE_COMMAND) -P CMakeFiles/ExperimentalCoverage.dir/cmake_clean.cmake
 .PHONY : external/jsoncpp/CMakeFiles/ExperimentalCoverage.dir/clean
 
 external/jsoncpp/CMakeFiles/ExperimentalCoverage.dir/depend:
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /disk/users/lprate/projects/MuonsAndMatter/cpp /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp /disk/users/lprate/projects/MuonsAndMatter/cpp/build /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/CMakeFiles/ExperimentalCoverage.dir/DependInfo.cmake --color=$(COLOR)
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /disk/users/lprate/projects/cuda_muons/geant4/cpp /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp /disk/users/lprate/projects/cuda_muons/geant4/cpp/build /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/CMakeFiles/ExperimentalCoverage.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : external/jsoncpp/CMakeFiles/ExperimentalCoverage.dir/depend
 

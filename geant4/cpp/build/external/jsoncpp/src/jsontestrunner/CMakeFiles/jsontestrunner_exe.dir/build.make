@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /disk/users/lprate/projects/MuonsAndMatter/cpp
+CMAKE_SOURCE_DIR = /disk/users/lprate/projects/cuda_muons/geant4/cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /disk/users/lprate/projects/MuonsAndMatter/cpp/build
+CMAKE_BINARY_DIR = /disk/users/lprate/projects/cuda_muons/geant4/cpp/build
 
 # Include any dependencies generated for this target.
 include external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/depend.make
@@ -72,16 +72,16 @@ include external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/fl
 external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/main.cpp.o: external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/flags.make
 external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/main.cpp.o: ../external/jsoncpp/src/jsontestrunner/main.cpp
 external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/main.cpp.o: external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/main.cpp.o"
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/jsontestrunner && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/main.cpp.o -MF CMakeFiles/jsontestrunner_exe.dir/main.cpp.o.d -o CMakeFiles/jsontestrunner_exe.dir/main.cpp.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/src/jsontestrunner/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/main.cpp.o"
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/jsontestrunner && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/main.cpp.o -MF CMakeFiles/jsontestrunner_exe.dir/main.cpp.o.d -o CMakeFiles/jsontestrunner_exe.dir/main.cpp.o -c /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/src/jsontestrunner/main.cpp
 
 external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/jsontestrunner_exe.dir/main.cpp.i"
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/jsontestrunner && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/src/jsontestrunner/main.cpp > CMakeFiles/jsontestrunner_exe.dir/main.cpp.i
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/jsontestrunner && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/src/jsontestrunner/main.cpp > CMakeFiles/jsontestrunner_exe.dir/main.cpp.i
 
 external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/jsontestrunner_exe.dir/main.cpp.s"
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/jsontestrunner && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/src/jsontestrunner/main.cpp -o CMakeFiles/jsontestrunner_exe.dir/main.cpp.s
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/jsontestrunner && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/src/jsontestrunner/main.cpp -o CMakeFiles/jsontestrunner_exe.dir/main.cpp.s
 
 # Object files for target jsontestrunner_exe
 jsontestrunner_exe_OBJECTS = \
@@ -94,18 +94,18 @@ external/jsoncpp/src/jsontestrunner/jsontestrunner_exe: external/jsoncpp/src/jso
 external/jsoncpp/src/jsontestrunner/jsontestrunner_exe: external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/build.make
 external/jsoncpp/src/jsontestrunner/jsontestrunner_exe: external/jsoncpp/src/lib_json/libjsoncpp.so.1.9.5
 external/jsoncpp/src/jsontestrunner/jsontestrunner_exe: external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable jsontestrunner_exe"
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/jsontestrunner && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/jsontestrunner_exe.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable jsontestrunner_exe"
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/jsontestrunner && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/jsontestrunner_exe.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/build: external/jsoncpp/src/jsontestrunner/jsontestrunner_exe
 .PHONY : external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/build
 
 external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/clean:
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/jsontestrunner && $(CMAKE_COMMAND) -P CMakeFiles/jsontestrunner_exe.dir/cmake_clean.cmake
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/jsontestrunner && $(CMAKE_COMMAND) -P CMakeFiles/jsontestrunner_exe.dir/cmake_clean.cmake
 .PHONY : external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/clean
 
 external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/depend:
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /disk/users/lprate/projects/MuonsAndMatter/cpp /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/src/jsontestrunner /disk/users/lprate/projects/MuonsAndMatter/cpp/build /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/jsontestrunner /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/DependInfo.cmake --color=$(COLOR)
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /disk/users/lprate/projects/cuda_muons/geant4/cpp /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/src/jsontestrunner /disk/users/lprate/projects/cuda_muons/geant4/cpp/build /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/jsontestrunner /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : external/jsoncpp/src/jsontestrunner/CMakeFiles/jsontestrunner_exe.dir/depend
 

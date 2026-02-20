@@ -1,7 +1,7 @@
 CMakeFiles/common_sources.dir/CustomSteppingAction.cc.o: \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/CustomSteppingAction.cc \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/CustomSteppingAction.cc \
  /usr/include/stdc-predef.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/CustomSteppingAction.hh \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/CustomSteppingAction.hh \
  /usr/local/include/Geant4/G4UserSteppingAction.hh \
  /usr/local/include/Geant4/globals.hh /usr/local/include/Geant4/G4ios.hh \
  /usr/local/include/Geant4/G4Types.hh \

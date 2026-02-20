@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /disk/users/lprate/projects/MuonsAndMatter/cpp
+CMAKE_SOURCE_DIR = /disk/users/lprate/projects/cuda_muons/geant4/cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /disk/users/lprate/projects/MuonsAndMatter/cpp/build
+CMAKE_BINARY_DIR = /disk/users/lprate/projects/cuda_muons/geant4/cpp/build
 
 # Utility rule file for NightlyMemCheck.
 
@@ -67,7 +67,7 @@ include external/jsoncpp/CMakeFiles/NightlyMemCheck.dir/compiler_depend.make
 include external/jsoncpp/CMakeFiles/NightlyMemCheck.dir/progress.make
 
 external/jsoncpp/CMakeFiles/NightlyMemCheck:
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp && /usr/bin/ctest -D NightlyMemCheck
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp && /usr/bin/ctest -D NightlyMemCheck
 
 NightlyMemCheck: external/jsoncpp/CMakeFiles/NightlyMemCheck
 NightlyMemCheck: external/jsoncpp/CMakeFiles/NightlyMemCheck.dir/build.make
@@ -78,10 +78,10 @@ external/jsoncpp/CMakeFiles/NightlyMemCheck.dir/build: NightlyMemCheck
 .PHONY : external/jsoncpp/CMakeFiles/NightlyMemCheck.dir/build
 
 external/jsoncpp/CMakeFiles/NightlyMemCheck.dir/clean:
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp && $(CMAKE_COMMAND) -P CMakeFiles/NightlyMemCheck.dir/cmake_clean.cmake
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp && $(CMAKE_COMMAND) -P CMakeFiles/NightlyMemCheck.dir/cmake_clean.cmake
 .PHONY : external/jsoncpp/CMakeFiles/NightlyMemCheck.dir/clean
 
 external/jsoncpp/CMakeFiles/NightlyMemCheck.dir/depend:
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /disk/users/lprate/projects/MuonsAndMatter/cpp /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp /disk/users/lprate/projects/MuonsAndMatter/cpp/build /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/CMakeFiles/NightlyMemCheck.dir/DependInfo.cmake --color=$(COLOR)
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /disk/users/lprate/projects/cuda_muons/geant4/cpp /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp /disk/users/lprate/projects/cuda_muons/geant4/cpp/build /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/CMakeFiles/NightlyMemCheck.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : external/jsoncpp/CMakeFiles/NightlyMemCheck.dir/depend
 

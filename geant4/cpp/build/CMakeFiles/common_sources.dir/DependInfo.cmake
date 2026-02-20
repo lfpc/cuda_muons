@@ -8,15 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/disk/users/lprate/projects/MuonsAndMatter/cpp/BoxyDetectorConstruction.cc" "CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.o" "gcc" "CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.o.d"
-  "/disk/users/lprate/projects/MuonsAndMatter/cpp/CustomEventAction.cc" "CMakeFiles/common_sources.dir/CustomEventAction.cc.o" "gcc" "CMakeFiles/common_sources.dir/CustomEventAction.cc.o.d"
-  "/disk/users/lprate/projects/MuonsAndMatter/cpp/CustomMagneticField.cc" "CMakeFiles/common_sources.dir/CustomMagneticField.cc.o" "gcc" "CMakeFiles/common_sources.dir/CustomMagneticField.cc.o.d"
-  "/disk/users/lprate/projects/MuonsAndMatter/cpp/CustomSteppingAction.cc" "CMakeFiles/common_sources.dir/CustomSteppingAction.cc.o" "gcc" "CMakeFiles/common_sources.dir/CustomSteppingAction.cc.o.d"
-  "/disk/users/lprate/projects/MuonsAndMatter/cpp/DetectorConstruction.cc" "CMakeFiles/common_sources.dir/DetectorConstruction.cc.o" "gcc" "CMakeFiles/common_sources.dir/DetectorConstruction.cc.o.d"
-  "/disk/users/lprate/projects/MuonsAndMatter/cpp/GDetectorConstruction.cc" "CMakeFiles/common_sources.dir/GDetectorConstruction.cc.o" "gcc" "CMakeFiles/common_sources.dir/GDetectorConstruction.cc.o.d"
-  "/disk/users/lprate/projects/MuonsAndMatter/cpp/PrimaryGeneratorAction.cc" "CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o" "gcc" "CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o.d"
-  "/disk/users/lprate/projects/MuonsAndMatter/cpp/SlimFilm.cc" "CMakeFiles/common_sources.dir/SlimFilm.cc.o" "gcc" "CMakeFiles/common_sources.dir/SlimFilm.cc.o.d"
-  "/disk/users/lprate/projects/MuonsAndMatter/cpp/SlimFilmSensitiveDetector.cc" "CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.o" "gcc" "CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.o.d"
+  "/disk/users/lprate/projects/cuda_muons/geant4/cpp/CustomEventAction.cc" "CMakeFiles/common_sources.dir/CustomEventAction.cc.o" "gcc" "CMakeFiles/common_sources.dir/CustomEventAction.cc.o.d"
+  "/disk/users/lprate/projects/cuda_muons/geant4/cpp/CustomSteppingAction.cc" "CMakeFiles/common_sources.dir/CustomSteppingAction.cc.o" "gcc" "CMakeFiles/common_sources.dir/CustomSteppingAction.cc.o.d"
+  "/disk/users/lprate/projects/cuda_muons/geant4/cpp/DetectorConstruction.cc" "CMakeFiles/common_sources.dir/DetectorConstruction.cc.o" "gcc" "CMakeFiles/common_sources.dir/DetectorConstruction.cc.o.d"
+  "/disk/users/lprate/projects/cuda_muons/geant4/cpp/PrimaryGeneratorAction.cc" "CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o" "gcc" "CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o.d"
+  "/disk/users/lprate/projects/cuda_muons/geant4/cpp/SlimFilm.cc" "CMakeFiles/common_sources.dir/SlimFilm.cc.o" "gcc" "CMakeFiles/common_sources.dir/SlimFilm.cc.o.d"
+  "/disk/users/lprate/projects/cuda_muons/geant4/cpp/SlimFilmSensitiveDetector.cc" "CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.o" "gcc" "CMakeFiles/common_sources.dir/SlimFilmSensitiveDetector.cc.o.d"
   )
 
 # Targets to which this target links.

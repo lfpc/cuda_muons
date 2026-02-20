@@ -81,7 +81,9 @@ void SlimFilm::setMagneticFieldValue(double strength, double theta, double phi) 
 void SlimFilm::ConstructSDandField() {
     // Create the sensitive detector
     G4String sdName = "MySensitiveDetector";
-    SlimFilmSensitiveDetector* mySD = new SlimFilmSensitiveDetector(sdName, 0, false);
+    auto* sdManager = G4SDManager::GetSDMpointer();
+    SlimFilmSensitiveDetector* mySD = new SlimFilmSensitiveDetector(sdName);
+    sdManager->AddNewDetector(mySD);
 
     // Attach the sensitive detector to the logical volume
     if (logicG) {

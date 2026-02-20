@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /disk/users/lprate/projects/MuonsAndMatter/cpp
+CMAKE_SOURCE_DIR = /disk/users/lprate/projects/cuda_muons/geant4/cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /disk/users/lprate/projects/MuonsAndMatter/cpp/build
+CMAKE_BINARY_DIR = /disk/users/lprate/projects/cuda_muons/geant4/cpp/build
 
 # Utility rule file for jsoncpp_check.
 
@@ -77,10 +77,10 @@ external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_check.dir/build: jsoncpp_
 .PHONY : external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_check.dir/build
 
 external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_check.dir/clean:
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/jsontestrunner && $(CMAKE_COMMAND) -P CMakeFiles/jsoncpp_check.dir/cmake_clean.cmake
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/jsontestrunner && $(CMAKE_COMMAND) -P CMakeFiles/jsoncpp_check.dir/cmake_clean.cmake
 .PHONY : external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_check.dir/clean
 
 external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_check.dir/depend:
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /disk/users/lprate/projects/MuonsAndMatter/cpp /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/src/jsontestrunner /disk/users/lprate/projects/MuonsAndMatter/cpp/build /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/jsontestrunner /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_check.dir/DependInfo.cmake --color=$(COLOR)
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /disk/users/lprate/projects/cuda_muons/geant4/cpp /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/src/jsontestrunner /disk/users/lprate/projects/cuda_muons/geant4/cpp/build /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/jsontestrunner /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_check.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_check.dir/depend
 

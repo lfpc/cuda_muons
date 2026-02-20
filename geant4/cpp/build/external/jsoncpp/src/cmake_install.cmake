@@ -1,4 +1,4 @@
-# Install script for directory: /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/src
+# Install script for directory: /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,9 +44,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/lib_json/cmake_install.cmake")
-  include("/disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/jsontestrunner/cmake_install.cmake")
-  include("/disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/test_lib_json/cmake_install.cmake")
+  include("/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/lib_json/cmake_install.cmake")
+  include("/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/jsontestrunner/cmake_install.cmake")
+  include("/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/test_lib_json/cmake_install.cmake")
 
 endif()
 

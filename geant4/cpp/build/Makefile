@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /disk/users/lprate/projects/MuonsAndMatter/cpp
+CMAKE_SOURCE_DIR = /disk/users/lprate/projects/cuda_muons/geant4/cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /disk/users/lprate/projects/MuonsAndMatter/cpp/build
+CMAKE_BINARY_DIR = /disk/users/lprate/projects/cuda_muons/geant4/cpp/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,9 +132,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles /disk/users/lprate/projects/MuonsAndMatter/cpp/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles /disk/users/lprate/projects/cuda_muons/geant4/cpp/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -655,30 +655,6 @@ jsoncpp_test/fast:
 	$(MAKE) $(MAKESILENT) -f external/jsoncpp/src/test_lib_json/CMakeFiles/jsoncpp_test.dir/build.make external/jsoncpp/src/test_lib_json/CMakeFiles/jsoncpp_test.dir/build
 .PHONY : jsoncpp_test/fast
 
-BoxyDetectorConstruction.o: BoxyDetectorConstruction.cc.o
-.PHONY : BoxyDetectorConstruction.o
-
-# target to build an object file
-BoxyDetectorConstruction.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/common_sources.dir/build.make CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.o
-.PHONY : BoxyDetectorConstruction.cc.o
-
-BoxyDetectorConstruction.i: BoxyDetectorConstruction.cc.i
-.PHONY : BoxyDetectorConstruction.i
-
-# target to preprocess a source file
-BoxyDetectorConstruction.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/common_sources.dir/build.make CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.i
-.PHONY : BoxyDetectorConstruction.cc.i
-
-BoxyDetectorConstruction.s: BoxyDetectorConstruction.cc.s
-.PHONY : BoxyDetectorConstruction.s
-
-# target to generate assembly for a file
-BoxyDetectorConstruction.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/common_sources.dir/build.make CMakeFiles/common_sources.dir/BoxyDetectorConstruction.cc.s
-.PHONY : BoxyDetectorConstruction.cc.s
-
 CustomEventAction.o: CustomEventAction.cc.o
 .PHONY : CustomEventAction.o
 
@@ -702,30 +678,6 @@ CustomEventAction.s: CustomEventAction.cc.s
 CustomEventAction.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/common_sources.dir/build.make CMakeFiles/common_sources.dir/CustomEventAction.cc.s
 .PHONY : CustomEventAction.cc.s
-
-CustomMagneticField.o: CustomMagneticField.cc.o
-.PHONY : CustomMagneticField.o
-
-# target to build an object file
-CustomMagneticField.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/common_sources.dir/build.make CMakeFiles/common_sources.dir/CustomMagneticField.cc.o
-.PHONY : CustomMagneticField.cc.o
-
-CustomMagneticField.i: CustomMagneticField.cc.i
-.PHONY : CustomMagneticField.i
-
-# target to preprocess a source file
-CustomMagneticField.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/common_sources.dir/build.make CMakeFiles/common_sources.dir/CustomMagneticField.cc.i
-.PHONY : CustomMagneticField.cc.i
-
-CustomMagneticField.s: CustomMagneticField.cc.s
-.PHONY : CustomMagneticField.s
-
-# target to generate assembly for a file
-CustomMagneticField.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/common_sources.dir/build.make CMakeFiles/common_sources.dir/CustomMagneticField.cc.s
-.PHONY : CustomMagneticField.cc.s
 
 CustomSteppingAction.o: CustomSteppingAction.cc.o
 .PHONY : CustomSteppingAction.o
@@ -774,30 +726,6 @@ DetectorConstruction.s: DetectorConstruction.cc.s
 DetectorConstruction.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/common_sources.dir/build.make CMakeFiles/common_sources.dir/DetectorConstruction.cc.s
 .PHONY : DetectorConstruction.cc.s
-
-GDetectorConstruction.o: GDetectorConstruction.cc.o
-.PHONY : GDetectorConstruction.o
-
-# target to build an object file
-GDetectorConstruction.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/common_sources.dir/build.make CMakeFiles/common_sources.dir/GDetectorConstruction.cc.o
-.PHONY : GDetectorConstruction.cc.o
-
-GDetectorConstruction.i: GDetectorConstruction.cc.i
-.PHONY : GDetectorConstruction.i
-
-# target to preprocess a source file
-GDetectorConstruction.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/common_sources.dir/build.make CMakeFiles/common_sources.dir/GDetectorConstruction.cc.i
-.PHONY : GDetectorConstruction.cc.i
-
-GDetectorConstruction.s: GDetectorConstruction.cc.s
-.PHONY : GDetectorConstruction.s
-
-# target to generate assembly for a file
-GDetectorConstruction.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/common_sources.dir/build.make CMakeFiles/common_sources.dir/GDetectorConstruction.cc.s
-.PHONY : GDetectorConstruction.cc.s
 
 MuonSlabs.o: MuonSlabs.cc.o
 .PHONY : MuonSlabs.o
@@ -969,24 +897,15 @@ help:
 	@echo "... jsoncpp_test"
 	@echo "... jsontestrunner_exe"
 	@echo "... muon_slabs"
-	@echo "... BoxyDetectorConstruction.o"
-	@echo "... BoxyDetectorConstruction.i"
-	@echo "... BoxyDetectorConstruction.s"
 	@echo "... CustomEventAction.o"
 	@echo "... CustomEventAction.i"
 	@echo "... CustomEventAction.s"
-	@echo "... CustomMagneticField.o"
-	@echo "... CustomMagneticField.i"
-	@echo "... CustomMagneticField.s"
 	@echo "... CustomSteppingAction.o"
 	@echo "... CustomSteppingAction.i"
 	@echo "... CustomSteppingAction.s"
 	@echo "... DetectorConstruction.o"
 	@echo "... DetectorConstruction.i"
 	@echo "... DetectorConstruction.s"
-	@echo "... GDetectorConstruction.o"
-	@echo "... GDetectorConstruction.i"
-	@echo "... GDetectorConstruction.s"
 	@echo "... MuonSlabs.o"
 	@echo "... MuonSlabs.i"
 	@echo "... MuonSlabs.s"

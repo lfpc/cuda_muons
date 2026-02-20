@@ -1,7 +1,7 @@
 CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o: \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/PrimaryGeneratorAction.cc \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/PrimaryGeneratorAction.cc \
  /usr/include/stdc-predef.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/PrimaryGeneratorAction.hh \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/PrimaryGeneratorAction.hh \
  /usr/local/include/Geant4/G4VUserPrimaryGeneratorAction.hh \
  /usr/local/include/Geant4/G4ParticleGun.hh \
  /usr/local/include/Geant4/globals.hh /usr/local/include/Geant4/G4ios.hh \
@@ -276,7 +276,7 @@ CMakeFiles/common_sources.dir/PrimaryGeneratorAction.cc.o: \
  /usr/local/include/Geant4/PTL/Globals.hh \
  /usr/local/include/Geant4/PTL/Types.hh \
  /usr/local/include/Geant4/PTL/Utility.hh \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/CustomSteppingAction.hh \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/CustomSteppingAction.hh \
  /usr/local/include/Geant4/G4UserSteppingAction.hh \
  /usr/local/include/Geant4/globals.hh \
  /usr/local/include/Geant4/G4ParticleTable.hh \

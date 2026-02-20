@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DG4LIB_BUILD_DLL -DPTL_BUILD_DLL -Dmuon_slabs_EXPORTS
 
-CXX_INCLUDES = -I/some/random/path -I/usr/include/hdf5/serial -I/disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include -I/disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/src/lib_json/../../include -I/disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/include/json -isystem /usr/local/include/Geant4 -isystem /usr/include/python3.10 -isystem /usr/local/lib/python3.10/dist-packages/pybind11/include
+CXX_INCLUDES = -I/some/random/path -I/usr/include/hdf5/serial -I/disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include -I/disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/src/lib_json/../../include -I/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/include/json -isystem /usr/local/include/Geant4 -isystem /usr/include/python3.10 -isystem /usr/local/lib/python3.10/dist-packages/pybind11/include
 
 CXX_FLAGS = -fPIC -fvisibility=hidden -flto=auto -fno-fat-lto-objects -std=gnu++17
 

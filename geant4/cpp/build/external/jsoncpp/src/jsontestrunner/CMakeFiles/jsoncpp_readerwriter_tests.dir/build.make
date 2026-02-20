@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /disk/users/lprate/projects/MuonsAndMatter/cpp
+CMAKE_SOURCE_DIR = /disk/users/lprate/projects/cuda_muons/geant4/cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /disk/users/lprate/projects/MuonsAndMatter/cpp/build
+CMAKE_BINARY_DIR = /disk/users/lprate/projects/cuda_muons/geant4/cpp/build
 
 # Utility rule file for jsoncpp_readerwriter_tests.
 
@@ -68,7 +68,7 @@ include external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_readerwriter_test
 
 external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_readerwriter_tests: external/jsoncpp/src/jsontestrunner/jsontestrunner_exe
 external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_readerwriter_tests: external/jsoncpp/src/test_lib_json/jsoncpp_test
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/jsontestrunner && /usr/bin/python3.10 -B /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/src/jsontestrunner/../../test/runjsontests.py /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/jsontestrunner/jsontestrunner_exe /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/src/jsontestrunner/../../test/data
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/jsontestrunner && /usr/bin/python3.10 -B /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/src/jsontestrunner/../../test/runjsontests.py /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/jsontestrunner/jsontestrunner_exe /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/src/jsontestrunner/../../test/data
 
 jsoncpp_readerwriter_tests: external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_readerwriter_tests
 jsoncpp_readerwriter_tests: external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_readerwriter_tests.dir/build.make
@@ -79,10 +79,10 @@ external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_readerwriter_tests.dir/bu
 .PHONY : external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_readerwriter_tests.dir/build
 
 external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_readerwriter_tests.dir/clean:
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/jsontestrunner && $(CMAKE_COMMAND) -P CMakeFiles/jsoncpp_readerwriter_tests.dir/cmake_clean.cmake
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/jsontestrunner && $(CMAKE_COMMAND) -P CMakeFiles/jsoncpp_readerwriter_tests.dir/cmake_clean.cmake
 .PHONY : external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_readerwriter_tests.dir/clean
 
 external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_readerwriter_tests.dir/depend:
-	cd /disk/users/lprate/projects/MuonsAndMatter/cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /disk/users/lprate/projects/MuonsAndMatter/cpp /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/src/jsontestrunner /disk/users/lprate/projects/MuonsAndMatter/cpp/build /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/jsontestrunner /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_readerwriter_tests.dir/DependInfo.cmake --color=$(COLOR)
+	cd /disk/users/lprate/projects/cuda_muons/geant4/cpp/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /disk/users/lprate/projects/cuda_muons/geant4/cpp /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/src/jsontestrunner /disk/users/lprate/projects/cuda_muons/geant4/cpp/build /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/jsontestrunner /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_readerwriter_tests.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : external/jsoncpp/src/jsontestrunner/CMakeFiles/jsoncpp_readerwriter_tests.dir/depend
 

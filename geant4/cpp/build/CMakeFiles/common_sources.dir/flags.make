@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/local/include/Geant4 -I/some/random/path -I/usr/include/hdf5/serial -I/disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include -I/usr/local/lib/python3.10/dist-packages/pybind11/include -I/usr/include/python3.10
+CXX_INCLUDES = -I/usr/local/include/Geant4 -I/some/random/path -I/usr/include/hdf5/serial -I/disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include -I/usr/local/lib/python3.10/dist-packages/pybind11/include -I/usr/include/python3.10
 
 CXX_FLAGS = -fPIC -std=gnu++17
 

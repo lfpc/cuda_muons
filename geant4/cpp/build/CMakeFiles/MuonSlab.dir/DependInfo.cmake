@@ -8,13 +8,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/disk/users/lprate/projects/MuonsAndMatter/cpp/main.cc" "CMakeFiles/MuonSlab.dir/main.cc.o" "gcc" "CMakeFiles/MuonSlab.dir/main.cc.o.d"
+  "/disk/users/lprate/projects/cuda_muons/geant4/cpp/main.cc" "CMakeFiles/MuonSlab.dir/main.cc.o" "gcc" "CMakeFiles/MuonSlab.dir/main.cc.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/common_sources.dir/DependInfo.cmake"
-  "/disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/lib_json/CMakeFiles/jsoncpp_lib.dir/DependInfo.cmake"
+  "/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/common_sources.dir/DependInfo.cmake"
+  "/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/lib_json/CMakeFiles/jsoncpp_lib.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

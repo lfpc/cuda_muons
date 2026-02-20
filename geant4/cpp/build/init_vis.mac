@@ -1,16 +1,13 @@
-/vis/open OGLIX 1000x1000-0+0
-/vis/viewer/set/autoRefresh true
+/control/verbose 2
+/run/verbose 1
+/tracking/verbose 0
 
-/vis/scene/add/axes 0 0 0 10 cm
-/vis/viewer/set/style wireframe
-/vis/viewer/set/hiddenMarker true
-/vis/viewer/set/viewpointThetaPhi 60 30
+# Open a viewer (requires Geant4 built with OpenGL support)
+/vis/open OGL
 
-/run/initialize
-/vis/viewer/set/style wireframe
-/vis/scene/create
-/vis/scene/add/trajectories smooth
-/vis/scene/endOfEventAction accumulate
 /vis/drawVolume
-/vis/viewer/zoom 0.9
-/vis/viewer/update
+/vis/viewer/set/autoRefresh true
+/vis/scene/add/axes 0 0 0 10 cm
+/vis/scene/add/trajectories smooth
+/vis/scene/endOfEventAction accumulate 50
+/vis/viewer/flush

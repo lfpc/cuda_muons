@@ -31,11 +31,8 @@ set(SOURCE_FILES
         PrimaryGeneratorAction.cc
         CustomSteppingAction.cc
         CustomEventAction.cc
-        BoxyDetectorConstruction.cc
-        GDetectorConstruction.cc
         SlimFilm.cc
         SlimFilmSensitiveDetector.cc
-        CustomMagneticField.cc
         )
 
 

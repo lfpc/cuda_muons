@@ -1,4 +1,4 @@
-# Install script for directory: /disk/users/lprate/projects/MuonsAndMatter/cpp
+# Install script for directory: /disk/users/lprate/projects/cuda_muons/geant4/cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/cmake_install.cmake")
+  include("/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/cmake_install.cmake")
 
 endif()
 
@@ -56,5 +56,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/disk/users/lprate/projects/MuonsAndMatter/cpp/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

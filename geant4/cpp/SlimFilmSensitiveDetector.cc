@@ -7,9 +7,8 @@
 #include "G4SystemOfUnits.hh"
 
 
-
-SlimFilmSensitiveDetector::SlimFilmSensitiveDetector(const G4String &name, int reference_, bool isLastPlane_)
-    : G4VSensitiveDetector(name), isLastPlane(isLastPlane_), reference(reference_) {}
+SlimFilmSensitiveDetector::SlimFilmSensitiveDetector(const G4String &name)
+    : G4VSensitiveDetector(name) {}
 
 SlimFilmSensitiveDetector::~SlimFilmSensitiveDetector() {}
 
@@ -48,10 +47,6 @@ G4bool SlimFilmSensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory 
 
     double t_ns = aStep->GetPreStepPoint()->GetGlobalTime() / ns;
     time.push_back(t_ns);
-
-    if (isLastPlane) {
-        theTrack->SetTrackStatus(fStopAndKill);
-    }
 
     return true;
 }

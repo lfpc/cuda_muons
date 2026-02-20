@@ -61,12 +61,6 @@ int main(int argc, char** argv)
     }
 
 
-    // Set mandatory initialization classes
-    runManager->SetUserInitialization(new GDetectorConstruction(fileContents));
-//    runManager->SetUserInitialization(new BoxyDetectorConstruction(fileContents));
-//    runManager->SetUserInitialization(new DetectorConstruction);
-
-
     // Use the QGSP_BERT physics list
     G4VModularPhysicsList* physicsList = new QGSP_BERT;
 //    physicsList->RegisterPhysics(new G4EmLivermorePhysics());

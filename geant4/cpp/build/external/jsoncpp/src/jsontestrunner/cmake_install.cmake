@@ -1,4 +1,4 @@
-# Install script for directory: /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/src/jsontestrunner
+# Install script for directory: /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/src/jsontestrunner
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

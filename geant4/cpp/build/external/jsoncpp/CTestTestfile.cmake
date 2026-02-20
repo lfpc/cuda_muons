@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp
-# Build directory: /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp
+# Source directory: /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp
+# Build directory: /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

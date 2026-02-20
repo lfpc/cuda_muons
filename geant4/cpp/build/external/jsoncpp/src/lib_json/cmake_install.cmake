@@ -1,4 +1,4 @@
-# Install script for directory: /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/src/lib_json
+# Install script for directory: /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/src/lib_json
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -55,8 +55,8 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     endif()
   endforeach()
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES
-    "/disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/lib_json/libjsoncpp.so.1.9.5"
-    "/disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/lib_json/libjsoncpp.so.25"
+    "/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/lib_json/libjsoncpp.so.1.9.5"
+    "/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/lib_json/libjsoncpp.so.25"
     )
   foreach(file
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libjsoncpp.so.1.9.5"
@@ -78,7 +78,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libjsoncpp.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/lib_json/libjsoncpp.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/lib_json/libjsoncpp.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libjsoncpp.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libjsoncpp.so")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -88,7 +88,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/lib_json/libjsoncpp.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/lib_json/libjsoncpp.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -96,6 +96,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "json_reader.cpp.o"
     "json_value.cpp.o"
     "json_writer.cpp.o"
-    FILES_FROM_DIR "/disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/src/lib_json/CMakeFiles/jsoncpp_object.dir/")
+    FILES_FROM_DIR "/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/src/lib_json/CMakeFiles/jsoncpp_object.dir/")
 endif()
 

@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp
-BuildDirectory: /disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp
+SourceDirectory: /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp
+BuildDirectory: /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp
 
 # Where to place the cost data store
 CostDataFile: 
@@ -26,7 +26,7 @@ SubmitURL: https://my.cdash.org/submit.php?project=jsoncpp
 NightlyStartTime: 01:23:45 UTC
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp"
+ConfigureCommand: "/usr/bin/cmake" "/disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
@@ -44,7 +44,7 @@ SVNOptions:
 SVNUpdateOptions: 
 
 # Git options
-GITCommand: /usr/bin/git
+GITCommand: 
 GITInitSubmodules: 
 GITUpdateOptions: 
 GITUpdateCustom: 
@@ -57,9 +57,9 @@ P4UpdateOptions:
 P4UpdateCustom: 
 
 # Generic update command
-UpdateCommand: /usr/bin/git
+UpdateCommand: 
 UpdateOptions: 
-UpdateType: git
+UpdateType: 
 
 # Compiler info
 Compiler: /usr/bin/c++

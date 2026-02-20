@@ -16,7 +16,7 @@ public:
     virtual ~DetectorConstruction();
 
     virtual G4VPhysicalVolume* Construct();
-    std::vector<SlimFilmSensitiveDetector*> slimFilmSensitiveDetectors;
+    SlimFilmSensitiveDetector* slimFilmSensitiveDetector = nullptr;
     virtual void setMagneticFieldValue(double x, double y, double z);
     virtual G4UserLimits * getLimitsFromDetectorConfig(const Json::Value& detectorData);
     virtual double getDetectorWeight();

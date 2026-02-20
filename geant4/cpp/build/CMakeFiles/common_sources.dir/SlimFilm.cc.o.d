@@ -1,5 +1,5 @@
 CMakeFiles/common_sources.dir/SlimFilm.cc.o: \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/SlimFilm.cc \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/SlimFilm.cc \
  /usr/include/stdc-predef.h /usr/local/include/Geant4/G4SDManager.hh \
  /usr/local/include/Geant4/G4HCtable.hh \
  /usr/local/include/Geant4/globals.hh /usr/local/include/Geant4/G4ios.hh \
@@ -362,28 +362,28 @@ CMakeFiles/common_sources.dir/SlimFilm.cc.o: \
  /usr/local/include/Geant4/G4VReadOutGeometry.hh \
  /usr/local/include/Geant4/G4SensitiveVolumeList.hh \
  /usr/local/include/Geant4/G4VSDFilter.hh \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/SlimFilm.hh \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/SlimFilm.hh \
  /usr/local/include/Geant4/G4UniformMagField.hh \
  /usr/local/include/Geant4/G4MagneticField.hh \
  /usr/local/include/Geant4/G4Field.hh \
  /usr/local/include/Geant4/G4VUserDetectorConstruction.hh \
  /usr/local/include/Geant4/G4VPhysicalVolume.hh \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/json.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/config.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/allocator.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/version.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/json_features.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/forwards.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/reader.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/value.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/json.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/config.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/allocator.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/version.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/json_features.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/forwards.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/reader.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/value.h \
  /usr/include/c++/11/deque /usr/include/c++/11/bits/stl_deque.h \
  /usr/include/c++/11/bits/deque.tcc /usr/include/c++/11/stack \
  /usr/include/c++/11/bits/stl_stack.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include/json/writer.h \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/DetectorConstruction.hh \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include/json/writer.h \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/DetectorConstruction.hh \
  /usr/local/include/Geant4/G4UserLimits.hh \
  /usr/local/include/Geant4/G4UserLimits.icc \
- /disk/users/lprate/projects/MuonsAndMatter/cpp/SlimFilmSensitiveDetector.hh \
+ /disk/users/lprate/projects/cuda_muons/geant4/cpp/SlimFilmSensitiveDetector.hh \
  /usr/local/include/Geant4/G4VSensitiveDetector.hh \
  /usr/local/include/Geant4/G4Step.hh \
  /usr/local/include/Geant4/G4HCofThisEvent.hh \

@@ -309,6 +309,7 @@ void propagate_muons_with_alias_sampling_cuda_uniform_field(
     
     const auto N = muon_data_positions.size(0);
     const auto H_2D = iron.probability_table.size(1);
+    const auto N_momentum_bins = iron.probability_table.size(0);
 
     cudaMemcpyToSymbol(_use_symmetry, &use_symmetry, sizeof(bool));
 
@@ -318,7 +319,7 @@ void propagate_muons_with_alias_sampling_cuda_uniform_field(
 
     float log_start_val = log10f(0.18f);
     float log_stop_val = log10f(400.0f);
-    float inv_log_step_val = 95 / (log_stop_val - log_start_val);
+    float inv_log_step_val = N_momentum_bins / (log_stop_val - log_start_val);
     cudaMemcpyToSymbol(LOG_START, &log_start_val, sizeof(float));
     cudaMemcpyToSymbol(LOG_STOP, &log_stop_val, sizeof(float));
     cudaMemcpyToSymbol(INV_LOG_STEP, &inv_log_step_val, sizeof(float));

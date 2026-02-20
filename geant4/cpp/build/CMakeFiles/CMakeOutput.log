@@ -1,4 +1,4 @@
-The system is: Linux - 6.4.0-150600.23.70-default - x86_64
+The system is: Linux - 6.4.0-150600.23.81-default - x86_64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
 Compiler: /usr/bin/cc 
 Build flags: 
@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/3.22.1/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/3.22.1/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/c++ 
@@ -23,15 +23,15 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/3.22.1/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/3.22.1/CompilerIdCXX/a.out"
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp
+Change Dir: /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_24db0/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_24db0.dir/build.make CMakeFiles/cmTC_24db0.dir/build
-gmake[1]: Entering directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc   -v -o CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2412c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2412c.dir/build.make CMakeFiles/cmTC_2412c.dir/build
+gmake[1]: Entering directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc   -v -o CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
@@ -41,8 +41,8 @@ Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~2
 Thread model: posix
 Supported LTO compression algorithms: zlib zstd
 gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) 
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_24db0.dir/'
- /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_24db0.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /disk/users/lprate/mytmp/ccEtRDv4.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_2412c.dir/'
+ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_2412c.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /disk/users/lprate/mytmp/ccA9w0re.s
 GNU C17 (Ubuntu 11.4.0-1ubuntu1~22.04.2) version 11.4.0 (x86_64-linux-gnu)
 	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
 
@@ -62,15 +62,15 @@ GNU C17 (Ubuntu 11.4.0-1ubuntu1~22.04.2) version 11.4.0 (x86_64-linux-gnu)
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: 4011c2103cba78949d7e02d0f0047a3d
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_24db0.dir/'
- as -v --64 -o CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.o /disk/users/lprate/mytmp/ccEtRDv4.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_2412c.dir/'
+ as -v --64 -o CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.o /disk/users/lprate/mytmp/ccA9w0re.s
 GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/local/cuda/lib64/stubs/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.'
-Linking C executable cmTC_24db0
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_24db0.dir/link.txt --verbose=1
-/usr/bin/cc  -v CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.o -o cmTC_24db0 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.'
+Linking C executable cmTC_2412c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2412c.dir/link.txt --verbose=1
+/usr/bin/cc  -v CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.o -o cmTC_2412c 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
@@ -83,10 +83,10 @@ Supported LTO compression algorithms: zlib zstd
 gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/local/cuda/lib64/stubs/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_24db0' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_24db0.'
- /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/disk/users/lprate/mytmp/cctnKCgC.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_24db0 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/local/cuda/lib64/stubs -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_24db0' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_24db0.'
-gmake[1]: Leaving directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2412c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_2412c.'
+ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/disk/users/lprate/mytmp/ccPaAG1b.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_2412c /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/local/cuda/lib64/stubs -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2412c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_2412c.'
+gmake[1]: Leaving directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
 
 
 
@@ -107,12 +107,12 @@ Parsed C implicit include dir info from above output: rv=done
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_24db0/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_24db0.dir/build.make CMakeFiles/cmTC_24db0.dir/build]
-  ignore line: [gmake[1]: Entering directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c]
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_2412c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_2412c.dir/build.make CMakeFiles/cmTC_2412c.dir/build]
+  ignore line: [gmake[1]: Entering directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
@@ -122,8 +122,8 @@ Parsed C implicit link information from above output:
   ignore line: [Thread model: posix]
   ignore line: [Supported LTO compression algorithms: zlib zstd]
   ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) ]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_24db0.dir/']
-  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_24db0.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /disk/users/lprate/mytmp/ccEtRDv4.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_2412c.dir/']
+  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.22/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_2412c.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /disk/users/lprate/mytmp/ccA9w0re.s]
   ignore line: [GNU C17 (Ubuntu 11.4.0-1ubuntu1~22.04.2) version 11.4.0 (x86_64-linux-gnu)]
   ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
   ignore line: []
@@ -143,15 +143,15 @@ Parsed C implicit link information from above output:
   ignore line: []
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
   ignore line: [Compiler executable checksum: 4011c2103cba78949d7e02d0f0047a3d]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_24db0.dir/']
-  ignore line: [ as -v --64 -o CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.o /disk/users/lprate/mytmp/ccEtRDv4.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_2412c.dir/']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.o /disk/users/lprate/mytmp/ccA9w0re.s]
   ignore line: [GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/local/cuda/lib64/stubs/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.']
-  ignore line: [Linking C executable cmTC_24db0]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_24db0.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc  -v CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.o -o cmTC_24db0 ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.']
+  ignore line: [Linking C executable cmTC_2412c]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2412c.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc  -v CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.o -o cmTC_2412c ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper]
@@ -164,13 +164,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/local/cuda/lib64/stubs/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_24db0' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_24db0.']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/disk/users/lprate/mytmp/cctnKCgC.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_24db0 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/local/cuda/lib64/stubs -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2412c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_2412c.']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/disk/users/lprate/mytmp/ccPaAG1b.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_2412c /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/local/cuda/lib64/stubs -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/11/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/disk/users/lprate/mytmp/cctnKCgC.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/disk/users/lprate/mytmp/ccPaAG1b.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -188,7 +188,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_24db0] ==> ignore
+    arg [cmTC_2412c] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
@@ -201,7 +201,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/local/cuda/lib64/stubs] ==> dir [/usr/local/cuda/lib64/stubs]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..]
-    arg [CMakeFiles/cmTC_24db0.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_2412c.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--push-state] ==> ignore
     arg [--as-needed] ==> ignore
@@ -234,12 +234,12 @@ Parsed C implicit link information from above output:
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp
+Change Dir: /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_cde53/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_cde53.dir/build.make CMakeFiles/cmTC_cde53.dir/build
-gmake[1]: Entering directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++   -v -o CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d69b8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d69b8.dir/build.make CMakeFiles/cmTC_d69b8.dir/build
+gmake[1]: Entering directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++   -v -o CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
@@ -249,8 +249,8 @@ Configured with: ../src/configure -v --with-pkgversion='Ubuntu 11.4.0-1ubuntu1~2
 Thread model: posix
 Supported LTO compression algorithms: zlib zstd
 gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) 
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_cde53.dir/'
- /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_cde53.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /disk/users/lprate/mytmp/ccZaV3k6.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d69b8.dir/'
+ /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_d69b8.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /disk/users/lprate/mytmp/ccdoKM2M.s
 GNU C++17 (Ubuntu 11.4.0-1ubuntu1~22.04.2) version 11.4.0 (x86_64-linux-gnu)
 	compiled by GNU C version 11.4.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
 
@@ -274,15 +274,15 @@ GNU C++17 (Ubuntu 11.4.0-1ubuntu1~22.04.2) version 11.4.0 (x86_64-linux-gnu)
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: 6c87588fc345655b93b8c25f48f88886
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_cde53.dir/'
- as -v --64 -o CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.o /disk/users/lprate/mytmp/ccZaV3k6.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d69b8.dir/'
+ as -v --64 -o CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.o /disk/users/lprate/mytmp/ccdoKM2M.s
 GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/local/cuda/lib64/stubs/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.'
-Linking CXX executable cmTC_cde53
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cde53.dir/link.txt --verbose=1
-/usr/bin/c++  -v CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_cde53 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.'
+Linking CXX executable cmTC_d69b8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d69b8.dir/link.txt --verbose=1
+/usr/bin/c++  -v CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_d69b8 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper
@@ -295,10 +295,10 @@ Supported LTO compression algorithms: zlib zstd
 gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/local/cuda/lib64/stubs/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_cde53' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_cde53.'
- /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/disk/users/lprate/mytmp/ccDTEp6f.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_cde53 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/local/cuda/lib64/stubs -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_cde53' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_cde53.'
-gmake[1]: Leaving directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d69b8' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_d69b8.'
+ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/disk/users/lprate/mytmp/ccLBeVyf.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_d69b8 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/local/cuda/lib64/stubs -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d69b8' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_d69b8.'
+gmake[1]: Leaving directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
 
 
 
@@ -325,12 +325,12 @@ Parsed CXX implicit include dir info from above output: rv=done
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_cde53/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_cde53.dir/build.make CMakeFiles/cmTC_cde53.dir/build]
-  ignore line: [gmake[1]: Entering directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d69b8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d69b8.dir/build.make CMakeFiles/cmTC_d69b8.dir/build]
+  ignore line: [gmake[1]: Entering directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
@@ -340,8 +340,8 @@ Parsed CXX implicit link information from above output:
   ignore line: [Thread model: posix]
   ignore line: [Supported LTO compression algorithms: zlib zstd]
   ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) ]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_cde53.dir/']
-  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_cde53.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /disk/users/lprate/mytmp/ccZaV3k6.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d69b8.dir/']
+  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/11/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.22/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_d69b8.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /disk/users/lprate/mytmp/ccdoKM2M.s]
   ignore line: [GNU C++17 (Ubuntu 11.4.0-1ubuntu1~22.04.2) version 11.4.0 (x86_64-linux-gnu)]
   ignore line: [	compiled by GNU C version 11.4.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
   ignore line: []
@@ -365,15 +365,15 @@ Parsed CXX implicit link information from above output:
   ignore line: []
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
   ignore line: [Compiler executable checksum: 6c87588fc345655b93b8c25f48f88886]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_cde53.dir/']
-  ignore line: [ as -v --64 -o CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.o /disk/users/lprate/mytmp/ccZaV3k6.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d69b8.dir/']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.o /disk/users/lprate/mytmp/ccdoKM2M.s]
   ignore line: [GNU assembler version 2.38 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.38]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/local/cuda/lib64/stubs/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.']
-  ignore line: [Linking CXX executable cmTC_cde53]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cde53.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++  -v CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_cde53 ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.']
+  ignore line: [Linking CXX executable cmTC_d69b8]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d69b8.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++  -v CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_d69b8 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper]
@@ -386,13 +386,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04.2) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/11/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/local/cuda/lib64/stubs/:/usr/lib/gcc/x86_64-linux-gnu/11/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_cde53' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_cde53.']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/disk/users/lprate/mytmp/ccDTEp6f.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_cde53 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/local/cuda/lib64/stubs -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d69b8' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_d69b8.']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/11/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper -plugin-opt=-fresolution=/disk/users/lprate/mytmp/ccLBeVyf.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_d69b8 /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/11 -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/11/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/local/cuda/lib64/stubs -L/usr/lib/gcc/x86_64-linux-gnu/11/../../.. CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/11/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/11/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/11/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/11/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/disk/users/lprate/mytmp/ccDTEp6f.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/disk/users/lprate/mytmp/ccLBeVyf.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -410,7 +410,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_cde53] ==> ignore
+    arg [cmTC_d69b8] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/Scrt1.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/../../../x86_64-linux-gnu/crti.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/11/crtbeginS.o]
@@ -423,7 +423,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/local/cuda/lib64/stubs] ==> dir [/usr/local/cuda/lib64/stubs]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/11/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/11/../../..]
-    arg [CMakeFiles/cmTC_cde53.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_d69b8.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -452,45 +452,45 @@ Parsed CXX implicit link information from above output:
 
 
 Performing C++ SOURCE FILE Test HAS_FLTO_AUTO succeeded with the following output:
-Change Dir: /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp
+Change Dir: /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_14f0d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_14f0d.dir/build.make CMakeFiles/cmTC_14f0d.dir/build
-gmake[1]: Entering directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_14f0d.dir/src.cxx.o
-/usr/bin/c++ -DHAS_FLTO_AUTO  -flto=auto -fno-fat-lto-objects -std=gnu++17 -o CMakeFiles/cmTC_14f0d.dir/src.cxx.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp/src.cxx
-Linking CXX executable cmTC_14f0d
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_14f0d.dir/link.txt --verbose=1
-/usr/bin/c++ CMakeFiles/cmTC_14f0d.dir/src.cxx.o -o cmTC_14f0d  -flto=auto 
-gmake[1]: Leaving directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5e32c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5e32c.dir/build.make CMakeFiles/cmTC_5e32c.dir/build
+gmake[1]: Entering directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5e32c.dir/src.cxx.o
+/usr/bin/c++ -DHAS_FLTO_AUTO  -flto=auto -fno-fat-lto-objects -std=gnu++17 -o CMakeFiles/cmTC_5e32c.dir/src.cxx.o -c /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_5e32c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5e32c.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_5e32c.dir/src.cxx.o -o cmTC_5e32c  -flto=auto 
+gmake[1]: Leaving directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
 
 
 Source file was:
 int main() { return 0; }
 Determining if the include file pthread.h exists passed with the following output:
-Change Dir: /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp
+Change Dir: /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_3256f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_3256f.dir/build.make CMakeFiles/cmTC_3256f.dir/build
-gmake[1]: Entering directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_3256f.dir/CheckIncludeFile.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_3256f.dir/CheckIncludeFile.c.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
-Linking C executable cmTC_3256f
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3256f.dir/link.txt --verbose=1
-/usr/bin/cc CMakeFiles/cmTC_3256f.dir/CheckIncludeFile.c.o -o cmTC_3256f 
-gmake[1]: Leaving directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_8d875/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_8d875.dir/build.make CMakeFiles/cmTC_8d875.dir/build
+gmake[1]: Entering directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8d875.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_8d875.dir/CheckIncludeFile.c.o -c /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_8d875
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8d875.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_8d875.dir/CheckIncludeFile.c.o -o cmTC_8d875 
+gmake[1]: Leaving directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
 
 
 
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
-Change Dir: /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp
+Change Dir: /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_e8e48/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_e8e48.dir/build.make CMakeFiles/cmTC_e8e48.dir/build
-gmake[1]: Entering directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_e8e48.dir/src.c.o
-/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_e8e48.dir/src.c.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_e8e48
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e8e48.dir/link.txt --verbose=1
-/usr/bin/cc CMakeFiles/cmTC_e8e48.dir/src.c.o -o cmTC_e8e48 
-gmake[1]: Leaving directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_7f3ed/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_7f3ed.dir/build.make CMakeFiles/cmTC_7f3ed.dir/build
+gmake[1]: Entering directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7f3ed.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_7f3ed.dir/src.c.o -c /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_7f3ed
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7f3ed.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_7f3ed.dir/src.c.o -o cmTC_7f3ed 
+gmake[1]: Leaving directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
 
 
 Source file was:
@@ -515,33 +515,33 @@ int main(void)
 }
 
 Determining if the include file clocale exists passed with the following output:
-Change Dir: /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp
+Change Dir: /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_b3935/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b3935.dir/build.make CMakeFiles/cmTC_b3935.dir/build
-gmake[1]: Entering directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_b3935.dir/CheckIncludeFile.cxx.o
-/usr/bin/c++   -std=c++11 -o CMakeFiles/cmTC_b3935.dir/CheckIncludeFile.cxx.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
-Linking CXX executable cmTC_b3935
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b3935.dir/link.txt --verbose=1
-/usr/bin/c++ CMakeFiles/cmTC_b3935.dir/CheckIncludeFile.cxx.o -o cmTC_b3935 
-gmake[1]: Leaving directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_0a6ae/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_0a6ae.dir/build.make CMakeFiles/cmTC_0a6ae.dir/build
+gmake[1]: Entering directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_0a6ae.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -std=c++11 -o CMakeFiles/cmTC_0a6ae.dir/CheckIncludeFile.cxx.o -c /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_0a6ae
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0a6ae.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_0a6ae.dir/CheckIncludeFile.cxx.o -o cmTC_0a6ae 
+gmake[1]: Leaving directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
 
 
 
 Determining if the localeconv exist passed with the following output:
-Change Dir: /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp
+Change Dir: /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_b1032/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_b1032.dir/build.make CMakeFiles/cmTC_b1032.dir/build
-gmake[1]: Entering directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_b1032.dir/CheckSymbolExists.cxx.o
-/usr/bin/c++   -std=c++11 -o CMakeFiles/cmTC_b1032.dir/CheckSymbolExists.cxx.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
-Linking CXX executable cmTC_b1032
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b1032.dir/link.txt --verbose=1
-/usr/bin/c++ CMakeFiles/cmTC_b1032.dir/CheckSymbolExists.cxx.o -o cmTC_b1032 
-gmake[1]: Leaving directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_afd77/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_afd77.dir/build.make CMakeFiles/cmTC_afd77.dir/build
+gmake[1]: Entering directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_afd77.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++   -std=c++11 -o CMakeFiles/cmTC_afd77.dir/CheckSymbolExists.cxx.o -c /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_afd77
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_afd77.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_afd77.dir/CheckSymbolExists.cxx.o -o cmTC_afd77 
+gmake[1]: Leaving directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
 
 
-File /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+File /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
 /* */
 #include <clocale>
 
@@ -556,72 +556,72 @@ int main(int argc, char** argv)
 #endif
 }
 Determining if the include file sys/types.h exists passed with the following output:
-Change Dir: /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp
+Change Dir: /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c2d07/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c2d07.dir/build.make CMakeFiles/cmTC_c2d07.dir/build
-gmake[1]: Entering directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_c2d07.dir/CheckIncludeFile.cxx.o
-/usr/bin/c++   -std=c++11 -o CMakeFiles/cmTC_c2d07.dir/CheckIncludeFile.cxx.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
-Linking CXX executable cmTC_c2d07
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c2d07.dir/link.txt --verbose=1
-/usr/bin/c++ CMakeFiles/cmTC_c2d07.dir/CheckIncludeFile.cxx.o -o cmTC_c2d07 
-gmake[1]: Leaving directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_698e3/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_698e3.dir/build.make CMakeFiles/cmTC_698e3.dir/build
+gmake[1]: Entering directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_698e3.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -std=c++11 -o CMakeFiles/cmTC_698e3.dir/CheckIncludeFile.cxx.o -c /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_698e3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_698e3.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_698e3.dir/CheckIncludeFile.cxx.o -o cmTC_698e3 
+gmake[1]: Leaving directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
 
 
 
 Determining if the include file stdint.h exists passed with the following output:
-Change Dir: /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp
+Change Dir: /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c2bc4/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c2bc4.dir/build.make CMakeFiles/cmTC_c2bc4.dir/build
-gmake[1]: Entering directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_c2bc4.dir/CheckIncludeFile.cxx.o
-/usr/bin/c++   -std=c++11 -o CMakeFiles/cmTC_c2bc4.dir/CheckIncludeFile.cxx.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
-Linking CXX executable cmTC_c2bc4
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c2bc4.dir/link.txt --verbose=1
-/usr/bin/c++ CMakeFiles/cmTC_c2bc4.dir/CheckIncludeFile.cxx.o -o cmTC_c2bc4 
-gmake[1]: Leaving directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_216d3/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_216d3.dir/build.make CMakeFiles/cmTC_216d3.dir/build
+gmake[1]: Entering directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_216d3.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -std=c++11 -o CMakeFiles/cmTC_216d3.dir/CheckIncludeFile.cxx.o -c /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_216d3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_216d3.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_216d3.dir/CheckIncludeFile.cxx.o -o cmTC_216d3 
+gmake[1]: Leaving directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
 
 
 
 Determining if the include file stddef.h exists passed with the following output:
-Change Dir: /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp
+Change Dir: /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5b7cd/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5b7cd.dir/build.make CMakeFiles/cmTC_5b7cd.dir/build
-gmake[1]: Entering directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_5b7cd.dir/CheckIncludeFile.cxx.o
-/usr/bin/c++   -std=c++11 -o CMakeFiles/cmTC_5b7cd.dir/CheckIncludeFile.cxx.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
-Linking CXX executable cmTC_5b7cd
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5b7cd.dir/link.txt --verbose=1
-/usr/bin/c++ CMakeFiles/cmTC_5b7cd.dir/CheckIncludeFile.cxx.o -o cmTC_5b7cd 
-gmake[1]: Leaving directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5c1f9/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5c1f9.dir/build.make CMakeFiles/cmTC_5c1f9.dir/build
+gmake[1]: Entering directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5c1f9.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++   -std=c++11 -o CMakeFiles/cmTC_5c1f9.dir/CheckIncludeFile.cxx.o -c /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+Linking CXX executable cmTC_5c1f9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5c1f9.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_5c1f9.dir/CheckIncludeFile.cxx.o -o cmTC_5c1f9 
+gmake[1]: Leaving directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
 
 
 
 Determining size of lconv passed with the following output:
-Change Dir: /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp
+Change Dir: /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_69909/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_69909.dir/build.make CMakeFiles/cmTC_69909.dir/build
-gmake[1]: Entering directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_69909.dir/LCONV_SIZE.cpp.o
-/usr/bin/c++   -std=c++11 -o CMakeFiles/cmTC_69909.dir/LCONV_SIZE.cpp.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CheckTypeSize/LCONV_SIZE.cpp
-Linking CXX executable cmTC_69909
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_69909.dir/link.txt --verbose=1
-/usr/bin/c++ CMakeFiles/cmTC_69909.dir/LCONV_SIZE.cpp.o -o cmTC_69909 
-gmake[1]: Leaving directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_6a132/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_6a132.dir/build.make CMakeFiles/cmTC_6a132.dir/build
+gmake[1]: Entering directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6a132.dir/LCONV_SIZE.cpp.o
+/usr/bin/c++   -std=c++11 -o CMakeFiles/cmTC_6a132.dir/LCONV_SIZE.cpp.o -c /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CheckTypeSize/LCONV_SIZE.cpp
+Linking CXX executable cmTC_6a132
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6a132.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_6a132.dir/LCONV_SIZE.cpp.o -o cmTC_6a132 
+gmake[1]: Leaving directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
 
 
 
 Performing C++ SOURCE FILE Test HAVE_DECIMAL_POINT succeeded with the following output:
-Change Dir: /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp
+Change Dir: /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_bdf06/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_bdf06.dir/build.make CMakeFiles/cmTC_bdf06.dir/build
-gmake[1]: Entering directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_bdf06.dir/src.cxx.o
-/usr/bin/c++ -DHAVE_DECIMAL_POINT  -std=c++11 -o CMakeFiles/cmTC_bdf06.dir/src.cxx.o -c /disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp/src.cxx
-Linking CXX executable cmTC_bdf06
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bdf06.dir/link.txt --verbose=1
-/usr/bin/c++ CMakeFiles/cmTC_bdf06.dir/src.cxx.o -o cmTC_bdf06 
-gmake[1]: Leaving directory '/disk/users/lprate/projects/MuonsAndMatter/cpp/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_20f27/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_20f27.dir/build.make CMakeFiles/cmTC_20f27.dir/build
+gmake[1]: Entering directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_20f27.dir/src.cxx.o
+/usr/bin/c++ -DHAVE_DECIMAL_POINT  -std=c++11 -o CMakeFiles/cmTC_20f27.dir/src.cxx.o -c /disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_20f27
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_20f27.dir/link.txt --verbose=1
+/usr/bin/c++ CMakeFiles/cmTC_20f27.dir/src.cxx.o -o cmTC_20f27 
+gmake[1]: Leaving directory '/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/CMakeFiles/CMakeTmp'
 
 
 Source file was:

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DJSON_DLL_BUILD
 
-CXX_INCLUDES = -I/usr/local/include/Geant4 -I/some/random/path -I/usr/include/hdf5/serial -I/disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/include -I/disk/users/lprate/projects/MuonsAndMatter/cpp/external/jsoncpp/src/lib_json/../../include -I/disk/users/lprate/projects/MuonsAndMatter/cpp/build/external/jsoncpp/include/json
+CXX_INCLUDES = -I/usr/local/include/Geant4 -I/some/random/path -I/usr/include/hdf5/serial -I/disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/include -I/disk/users/lprate/projects/cuda_muons/geant4/cpp/external/jsoncpp/src/lib_json/../../include -I/disk/users/lprate/projects/cuda_muons/geant4/cpp/build/external/jsoncpp/include/json
 
 CXX_FLAGS = -Wall -Wconversion -Wshadow -Wextra -Wpedantic -Werror=strict-aliasing -std=c++11
 
