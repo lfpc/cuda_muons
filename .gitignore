@@ -15,5 +15,5 @@ data/*.pkl
 !data/alias_histograms*.pkl
 data/*.npy
 data/*.h5
-plots/*
+experiments/plots/*
 *.egg-info

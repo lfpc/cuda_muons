@@ -122,7 +122,7 @@ def propagate_muons_with_cuda(
 def run_from_params(params,
     muons:np.array,
         sensitive_plane={'dz': 0.02, 'dx': 4, 'dy': 6, 'position': 82.0},
-        histogram_dir='cuda_muons/data',
+        histogram_dir='data',
         save_dir = None,
         n_steps=500,
         fSC_mag = False,
@@ -296,7 +296,7 @@ def run_from_params(params,
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument('--h',dest = 'histogram_dir', type=str, default='cuda_muons/data/',
+    parser.add_argument('--h',dest = 'histogram_dir', type=str, default='data/',
                         help='Path to the histogram file')
     parser.add_argument('-muons', '--f', dest='input_file', type=str, default="data/muons/full_sample_after_target.h5",
                         help='Path to input muon file (.npy, .pkl, .h5). If not provided a synthetic example will be used.')
