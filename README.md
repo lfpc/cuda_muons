@@ -42,6 +42,3 @@ In [data](data), one can find the histograms for some materials. If one wish to 
      ```
      python3 cuda_muons.py
      ```
-
-  Be aware of the possible arguments (run `python3 cuda_muons.py -h`). The construction of the geometry is the same as in muons_and_matter (refer to the [main README file](../README.md)).
-
