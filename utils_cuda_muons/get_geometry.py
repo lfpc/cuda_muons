@@ -20,7 +20,6 @@ def get_sphere_design(mag_field, sens_film = None, material="G4_Fe"):
         detector["sensitive_film"] = sens_film
     return detector
 
-
 def get_corners_from_params(params: np.ndarray, fSC_mag: bool = False, NI_from_B: bool = True) -> torch.Tensor:
     """
     Build ARB8 corners directly from the magnet parameters, without going through
@@ -140,7 +139,6 @@ def get_corners_from_params(params: np.ndarray, fSC_mag: bool = False, NI_from_B
     
     return torch.from_numpy(np.array(all_corners, dtype=np.float32))
 
-
 def _expand_corners_from_params(corners_2d: np.ndarray, dz: float, z_center: float) -> np.ndarray:
     """
     Expand 2D corners (16 values) to 3D corners (8x3) by adding z coordinates.
@@ -159,42 +157,6 @@ def _expand_corners_from_params(corners_2d: np.ndarray, dz: float, z_center: flo
     z_coords = np.array([z_min] * 4 + [z_max] * 4).reshape(8, 1)
     corners_3d = np.hstack([corners_2d, z_coords])
     return corners_3d
-
-
-def get_corners_from_detector(detector, use_symmetry=True):
-
-    def expand_corners(corners, dz, z_center):
-        corners = np.array(corners)
-        z_min = z_center - dz
-        z_max = z_center + dz
-        corners = corners.reshape(8, 2)
-        z = np.full((8, 1), z_min)
-        z[4:] = z_max
-        corners = np.hstack([corners, z])
-        return corners
-
-    all_corners = []
-    for magnet in detector['magnets']:
-        if use_symmetry: components = magnet['components'][:3]
-        else: components = magnet['components']
-        for component in components:
-            corners = component['corners']
-            dz = component['dz']
-            z_center = component['z_center'] 
-            corners = expand_corners(corners, dz, z_center)
-            all_corners.append(corners)
-    return torch.from_numpy(np.array(all_corners))
-
-def get_cavern_from_detector(detector):
-    if 'cavern' not in detector:
-        return torch.tensor([[-30, 30, -30, 30, 0], [-30, 30, -30, 30, 0]], dtype=torch.float32)
-    cavern = detector['cavern']
-    TCC8 = cavern[0]
-    ECN3 = cavern[1]
-    TCC8_params = [TCC8['x1'], TCC8['x2'], TCC8['y1'], TCC8['y2'], TCC8['z_center']+TCC8['dz']]
-    ECN3_params = [ECN3['x1'], ECN3['x2'], ECN3['y1'], ECN3['y2'], ECN3['z_center']-ECN3['dz']]
-    return torch.tensor([TCC8_params,ECN3_params], dtype=torch.float32)
-
 
 def get_cavern_from_params(add_cavern: bool = True, world_dz: float = 200.0) -> torch.Tensor:
     """
@@ -259,13 +221,6 @@ def get_cavern_from_params(add_cavern: bool = True, world_dz: float = 200.0) -> 
     ECN3_params = [ECN3_x1, ECN3_x2, ECN3_y1, ECN3_y2, ECN3_z_min]
     
     return torch.tensor([TCC8_params, ECN3_params], dtype=torch.float32)
-
-def get_magnetic_field_from_detector(detector):
-    mag_dict = detector['global_field_map']
-    if isinstance(mag_dict['B'], str):
-        with h5py.File(mag_dict['B'], 'r') as f:
-            mag_dict['B'] = f["B"][:]
-    return mag_dict
 
 def create_z_axis_grid(corners_tensor: torch.Tensor, sz: int) -> list[list[int]]:
     """
