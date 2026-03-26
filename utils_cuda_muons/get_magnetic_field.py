@@ -28,6 +28,8 @@ SC_YMGAP = 15  # cm, gap for superconducting magnets
 RESOL_DEF = (2, 2, 5)  # Default resolution in cm (x, y, z)
 
 
+
+
 def get_magnetic_field_from_params(
     params: np.ndarray,
     simulate_fields: bool = False,
@@ -43,7 +45,7 @@ def get_magnetic_field_from_params(
     Args:
         params: Array of shape (N_magnets, 15) with magnet parameters.
                 Each row: [zgap, dZ, dXIn, dXOut, dYIn, dYOut, gapIn, gapOut,
-                          ratio_yokesIn, ratio_yokesOut, dY_yokeIn, dY_yokeOut,
+                          x_yokeIn, x_yokeOut, dY_yokeIn, dY_yokeOut,
                           midGapIn, midGapOut, NI]
         simulate_fields: If True, run FEM simulation and return field map dict.
         field_map_file: Path to save/load field map. If exists and simulate_fields=False,
@@ -89,8 +91,8 @@ def _get_uniform_fields(
     The field assignment follows the same logic as ship_muon_shield_customfield.py:
     - For each magnet with use_symmetry=True, we have 3 components:
       1. MainL (MiddleMagL): B = [0, ironField, 0]
-      2. TopLeft: B = [ironField/ratio_yoke, 0, 0]  
-      3. RetL (MagRetL): B = [0, -ironField/ratio_yoke, 0]
+            2. TopLeft: B = [ironField/(x_yoke/x_core), 0, 0]  
+            3. RetL (MagRetL): B = [0, -ironField/(x_yoke/x_core), 0]
     
     Args:
         params: Array of shape (N_magnets, 15) with magnet parameters.
@@ -107,7 +109,7 @@ def _get_uniform_fields(
     for magnet in params:
         dZ = magnet[1]
         dXIn = magnet[2]
-        ratio_yokesIn = magnet[8]
+        x_yokeIn = magnet[8]
         NI = magnet[14]
         
         # Skip invalid magnets
@@ -117,8 +119,8 @@ def _get_uniform_fields(
         
         ironField = NI
         
-        # Use ratio_yoke for scaling return/corner fields
-        ratio_yoke = ratio_yokesIn if ratio_yokesIn > 0 else 1.0
+        # Use X_yoke / X_core for scaling return/corner fields
+        ratio_yoke = x_yokeIn / dXIn if dXIn != 0 else 1.0
         
         # Field assignments matching the order from get_corners_from_params:
         # 1. MainL (MiddleMagL): vertical field in iron core
@@ -206,8 +208,8 @@ def _compute_field_extents(params: np.ndarray, fSC_mag: bool, NI_from_B: bool):
         dYOut = magnet[5]
         gapIn = magnet[6]
         gapOut = magnet[7]
-        ratio_yokesIn = magnet[8]
-        ratio_yokesOut = magnet[9]
+        x_yokeIn = magnet[8]
+        x_yokeOut = magnet[9]
         dY_yokeIn = magnet[10]
         dY_yokeOut = magnet[11]
         midGapIn = magnet[12]
@@ -221,8 +223,8 @@ def _compute_field_extents(params: np.ndarray, fSC_mag: bool, NI_from_B: bool):
         Ymgap = SC_YMGAP if is_SC else 0.0
         
         max_x = max(max_x, 
-                   dXIn + dXIn * ratio_yokesIn + gapIn + midGapIn,
-                   dXOut + dXOut * ratio_yokesOut + gapOut + midGapOut)
+                   dXIn + x_yokeIn + gapIn + midGapIn,
+                   dXOut + x_yokeOut + gapOut + midGapOut)
         max_y = max(max_y,
                    dYIn + dY_yokeIn + Ymgap,
                    dYOut + dY_yokeOut + Ymgap)
@@ -268,8 +270,8 @@ def _get_magnet_params(
 ) -> dict:
     """Build parameter dict for a single magnet."""
     
-    ratio_yoke_1 = params[8]
-    ratio_yoke_2 = params[9]
+    x_yoke_1 = params[8]
+    x_yoke_2 = params[9]
     B_NI = params[14]
     params_m = params / 100  # Convert to meters
     Xmgap_1 = params_m[12]
@@ -286,10 +288,10 @@ def _get_magnet_params(
         'Z_len(m)': 2 * params_m[1],
         'Xcore1(m)': params_m[2] + Xmgap_1,
         'Xvoid1(m)': params_m[2] + params_m[6] + Xmgap_2,
-        'Xyoke1(m)': params_m[2] + params_m[6] + ratio_yoke_1 * params_m[2] + Xmgap_1,
+        'Xyoke1(m)': params_m[2] + params_m[6] + x_yoke_1 / 100 + Xmgap_1,
         'Xcore2(m)': params_m[3] + Xmgap_2,
         'Xvoid2(m)': params_m[3] + params_m[7] + Xmgap_2,
-        'Xyoke2(m)': params_m[3] + params_m[7] + ratio_yoke_2 * params_m[3] + Xmgap_2,
+        'Xyoke2(m)': params_m[3] + params_m[7] + x_yoke_2 / 100 + Xmgap_2,
         'Ycore1(m)': params_m[4],
         'Yvoid1(m)': params_m[4] + Ymgap / 100,
         'Yyoke1(m)': params_m[4] + params_m[10] + Ymgap / 100,

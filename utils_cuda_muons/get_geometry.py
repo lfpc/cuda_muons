@@ -20,6 +20,10 @@ def get_sphere_design(mag_field, sens_film = None, material="G4_Fe"):
         detector["sensitive_film"] = sens_film
     return detector
 
+
+def _get_yoke_outer_x(x_core: float, x_yoke: float, middle_gap: float, coil_gap: float) -> float:
+    return x_core + x_yoke + middle_gap + coil_gap
+
 def get_corners_from_params(params: np.ndarray, fSC_mag: bool = False, NI_from_B: bool = True) -> torch.Tensor:
     """
     Build ARB8 corners directly from the magnet parameters, without going through
@@ -29,7 +33,7 @@ def get_corners_from_params(params: np.ndarray, fSC_mag: bool = False, NI_from_B
     Args:
         params: Array of shape (N_magnets, 15) with magnet parameters.
                 Each row: [zgap, dZ, dXIn, dXOut, dYIn, dYOut, gapIn, gapOut,
-                          ratio_yokesIn, ratio_yokesOut, dY_yokeIn, dY_yokeOut,
+                          x_yokeIn, x_yokeOut, dY_yokeIn, dY_yokeOut,
                           midGapIn, midGapOut, NI]
         fSC_mag: Whether superconducting magnets are used (affects Ymgap).
         NI_from_B: Whether NI is derived from B (affects SC threshold).
@@ -57,8 +61,8 @@ def get_corners_from_params(params: np.ndarray, fSC_mag: bool = False, NI_from_B
         dYOut = magnet[5]
         gapIn = magnet[6]
         gapOut = magnet[7]
-        ratio_yokesIn = magnet[8]
-        ratio_yokesOut = magnet[9]
+        x_yokeIn = magnet[8]
+        x_yokeOut = magnet[9]
         dY_yokeIn = magnet[10]
         dY_yokeOut = magnet[11]
         midGapIn = magnet[12]
@@ -88,8 +92,8 @@ def get_corners_from_params(params: np.ndarray, fSC_mag: bool = False, NI_from_B
         middleGap2 = midGapOut
         coil_gap = gapIn
         coil_gap2 = gapOut
-        ratio_yoke_1 = ratio_yokesIn
-        ratio_yoke_2 = ratio_yokesOut
+        x_yoke_1 = x_yokeIn
+        x_yoke_2 = x_yokeOut
         dY_yoke_1 = dY_yokeIn
         dY_yoke_2 = dY_yokeOut
         
@@ -109,11 +113,11 @@ def get_corners_from_params(params: np.ndarray, fSC_mag: bool = False, NI_from_B
         cornersTL = np.array([
             middleGap + dX, dY,
             middleGap, dY + dY_yoke_1,
-            dX + ratio_yoke_1 * dX + middleGap + coil_gap, dY + dY_yoke_1,
+            _get_yoke_outer_x(dX, x_yoke_1, middleGap, coil_gap), dY + dY_yoke_1,
             dX + middleGap + coil_gap, dY,
             middleGap2 + dX2, dY2,
             middleGap2, dY2 + dY_yoke_2,
-            dX2 + ratio_yoke_2 * dX2 + middleGap2 + coil_gap2, dY2 + dY_yoke_2,
+            _get_yoke_outer_x(dX2, x_yoke_2, middleGap2, coil_gap2), dY2 + dY_yoke_2,
             dX2 + middleGap2 + coil_gap2, dY2
         ])
         
@@ -121,12 +125,12 @@ def get_corners_from_params(params: np.ndarray, fSC_mag: bool = False, NI_from_B
         cornersMainSideL = np.array([
             dX + middleGap + gapIn, -dY,
             dX + middleGap + gapIn, dY,
-            dX + ratio_yoke_1 * dX + middleGap + gapIn, dY + dY_yoke_1,
-            dX + ratio_yoke_1 * dX + middleGap + gapIn, -(dY + dY_yoke_1),
+            _get_yoke_outer_x(dX, x_yoke_1, middleGap, gapIn), dY + dY_yoke_1,
+            _get_yoke_outer_x(dX, x_yoke_1, middleGap, gapIn), -(dY + dY_yoke_1),
             dX2 + middleGap2 + gapOut, -dY2,
             dX2 + middleGap2 + gapOut, dY2,
-            dX2 + ratio_yoke_2 * dX2 + middleGap2 + gapOut, dY2 + dY_yoke_2,
-            dX2 + ratio_yoke_2 * dX2 + middleGap2 + gapOut, -(dY2 + dY_yoke_2)
+            _get_yoke_outer_x(dX2, x_yoke_2, middleGap2, gapOut), dY2 + dY_yoke_2,
+            _get_yoke_outer_x(dX2, x_yoke_2, middleGap2, gapOut), -(dY2 + dY_yoke_2)
         ])
         
         # Expand corners to 3D (add z coordinates) and convert to meters

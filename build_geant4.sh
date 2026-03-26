@@ -7,5 +7,6 @@ cd build
 cmake -Dpybind11_DIR=/usr/local/lib/python3.10/dist-packages/pybind11/share/cmake/pybind11 -DPython_EXECUTABLE=/usr/bin/python3 ..
 make -j
 cd ../../..
-
-
+USER_SITE=$(python3 -m site --user-site)
+export PYTHONPATH="$USER_SITE:$PYTHONPATH"
+export PYTHONPATH=$PYTHONPATH:`readlink -f geant4/cpp/build`
