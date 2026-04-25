@@ -324,32 +324,40 @@ void propagate_muons_with_alias_sampling_cuda_uniform_field(
     cudaMemcpyToSymbol(LOG_STOP, &log_stop_val, sizeof(float));
     cudaMemcpyToSymbol(INV_LOG_STEP, &inv_log_step_val, sizeof(float));
 
-    auto z_neg_vals = arb8s.select(1, 0).select(1, 2); 
-    auto z_pos_vals = arb8s.select(1, 4).select(1, 2); 
-    float z_min = std::min(z_neg_vals.min().item<float>(), z_pos_vals.min().item<float>());
-    float z_max = std::max(z_neg_vals.max().item<float>(), z_pos_vals.max().item<float>());
-    z_max = std::max(z_max, 30.0f);
+    const int N_arbs = arb8s.size(0);
+    const bool has_arb8 = (N_arbs > 0);
+    float z_min = 0.0f;
+    float z_max = 30.0f;
+    ARB8_Data* arb8s_device = nullptr;
 
+    if (has_arb8) {
+        auto z_neg_vals = arb8s.select(1, 0).select(1, 2);
+        auto z_pos_vals = arb8s.select(1, 4).select(1, 2);
+        z_min = std::min(z_neg_vals.min().item<float>(), z_pos_vals.min().item<float>());
+        z_max = std::max(z_neg_vals.max().item<float>(), z_pos_vals.max().item<float>());
+        z_max = std::max(z_max, 30.0f);
 
-    int N_arbs = arb8s.size(0);
-    ARB8_Data* arb8s_device;
-    cudaMalloc(&arb8s_device, N_arbs * sizeof(ARB8_Data));
-
-    const int threads = 256;
-    const int blocks = (N_arbs + threads - 1) / threads;
-    fill_arb8s_with_fields_kernel<<<blocks, threads>>>(
-        arb8s.data_ptr<float>(),
-        arb8s_fields.data_ptr<float>(),
-        arb8s_device,
-        N_arbs
-    );
+        cudaMalloc(&arb8s_device, N_arbs * sizeof(ARB8_Data));
+        const int threads = 256;
+        const int blocks = (N_arbs + threads - 1) / threads;
+        fill_arb8s_with_fields_kernel<<<blocks, threads>>>(
+            arb8s.data_ptr<float>(),
+            arb8s_fields.data_ptr<float>(),
+            arb8s_device,
+            N_arbs
+        );
+    }
     
     const int sz = hashed3d_arb8s_cells.size(0) - 1;
     ZGridMeta grid_data;
     grid_data.sz = sz;
     grid_data.z_min_global = z_min;
     grid_data.z_max_global = z_max;
-    grid_data.z_cell_height_inv = (float)sz / (z_max - z_min);
+    float z_span = z_max - z_min;
+    if (z_span <= 0.0f) {
+        z_span = 1.0f;
+    }
+    grid_data.z_cell_height_inv = (float)sz / z_span;
     cudaMemcpyToSymbol(d_grid_meta, &grid_data, sizeof(ZGridMeta));
 
 
@@ -399,5 +407,7 @@ void propagate_muons_with_alias_sampling_cuda_uniform_field(
 
     CUDA_CHECK(cudaGetLastError());
     CUDA_CHECK(cudaDeviceSynchronize());
-    cudaFree(arb8s_device);
+    if (arb8s_device != nullptr) {
+        cudaFree(arb8s_device);
+    }
 }

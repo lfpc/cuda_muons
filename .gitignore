@@ -4,6 +4,7 @@ __pycache__/
 .DS_Store
 
 geant4/cpp/build/*
+geant4/cpp/externals/*
 faster_muons_torch/build/*
 container_install_cuda.sh
 data/muons/*.pkl

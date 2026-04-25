@@ -15,7 +15,7 @@ cd ..
 shell_container.sh
 ```
 
-To be able to run the CUDA code, one needs first to install the source code. You can do that by executing the script `install_cuda.sh`. The installation currently happens locally, (by using pip install --user). If you are using the container, be sure to execute this step (inside the container) when running for the first time. You won't need to do it again, unless you wish to modify the cuda source code.
+To be able to run the CUDA code, one needs first to install the source code. You can do that by executing the script `install_cuda.sh`. The installation currently happens locally, (by using pip install --user). If you are using the container, be sure to execute this step (inside the container) when running for the first time. You won't need to do it again, unless you wish to modify the cuda soruce code.
 
 ## Sampling data
 

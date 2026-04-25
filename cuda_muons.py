@@ -44,6 +44,12 @@ def set_environment(
             hists[4].float().to(device).contiguous(),   # bin_widths_first_dim
             hists[5].float().to(device).contiguous(),   # bin_widths_second_dim
         ]
+
+    # Normalize empty/no-magnet geometry to canonical shape expected downstream.
+    if arb8_corners.numel() == 0:
+        arb8_corners = torch.empty((0, 8, 3), dtype=torch.float32, device=arb8_corners.device)
+    elif arb8_corners.ndim != 3 or tuple(arb8_corners.shape[1:]) != (8, 3):
+        raise ValueError(f"arb8_corners must have shape (N, 8, 3). Got {tuple(arb8_corners.shape)}")
     
     cells_arb8, hashed_arb8 = create_z_axis_grid(arb8_corners, sz=15)
     cells_arb8 = cells_arb8.int().contiguous().to(device)
@@ -75,10 +81,15 @@ def set_environment(
     else:
         # Uniform field mode: magnetic_field is a tensor of shape (N_arb8s, 3)
         arb8s_fields = magnetic_field.float().to(device).contiguous()
+
+        # Backward compatibility for older code paths that emitted shape (0,).
+        if arb8s_fields.numel() == 0:
+            arb8s_fields = arb8s_fields.new_empty((0, 3))
+        elif arb8s_fields.ndim != 2 or arb8s_fields.shape[1] != 3:
+            raise ValueError(f"arb8s_fields must have shape (N, 3). Got {tuple(arb8s_fields.shape)}")
+
         assert arb8s_fields.shape[0] == arb8_corners.shape[0], \
             f"arb8s_fields must have the same number of ARB8s as arb8_corners. Got {arb8s_fields.shape[0]} vs {arb8_corners.shape[0]}"
-        assert arb8s_fields.shape[1] == 3, \
-            f"arb8s_fields must have shape (N, 3) for [Bx, By, Bz]. Got shape {arb8s_fields.shape}"
         
         cuda_muons_fn = faster_muons_torch.propagate_muons_with_alias_sampling_uniform_field
         field_args = (arb8s_fields,)
@@ -109,9 +120,12 @@ def propagate_muons_with_cuda(
     ):
     """Propagate muons using pre-computed GPU data from set_environment."""
 
-    muons_positions_cuda = muons_positions.float().to(device)
-    muons_momenta_cuda = muons_momenta.float().to(device)
-    muons_charge_cuda = muons_charge.float().to(device)
+    # IMPORTANT: the CUDA kernels assume a contiguous (N, 3) layout and use
+    # flat pointer arithmetic (idx * 3). Slices/transposes can be non-contiguous
+    # and would silently corrupt muon state without this.
+    muons_positions_cuda = muons_positions.contiguous().to(device=device, dtype=torch.float32)
+    muons_momenta_cuda = muons_momenta.contiguous().to(device=device, dtype=torch.float32)
+    muons_charge_cuda = muons_charge.contiguous().to(device=device, dtype=torch.float32)
 
     kill_at = 0.18
 
@@ -148,7 +162,7 @@ def run_from_params(params,
         sensitive_plane={'dz': 0.02, 'dx': 4, 'dy': 6, 'position': 82.0},
         histogram_dir='data',
         save_dir = None,
-        n_steps=500,
+        n_steps=5000,
         fSC_mag = False,
         field_map_file = None,
         NI_from_B = True,
@@ -325,8 +339,7 @@ if __name__ == '__main__':
                         help='Maximum number of muons to load from the input file; 0 means all')
     parser.add_argument('--n_steps', type=int, default=5000,
                         help='Number of steps for simulation')
-    parser.add_argument('-sens_plane', type=float, default=82.0,
-                        help='Z position of the sensitive plane')
+    parser.add_argument("-sens_plane", type=float, nargs='+', default=[82], help="Position(s) of the sensitive plane in z (m), 0 means no sensitive plane. Can specify multiple values separated by space.")
     parser.add_argument("-remove_cavern", dest="add_cavern", action='store_false', help="Remove the cavern from simulation")
     parser.add_argument('-plot', action='store_true',
                         help='Plot histograms')
@@ -366,7 +379,8 @@ if __name__ == '__main__':
                 muons = np.stack([px, py, pz, x, y, z, pdg, weight], axis=1).astype(np.float64)
     print(f"Loaded {muons.shape[0]} muons. Took {time.time() - time0:.2f} seconds to load.")
     dx, dy = 9.0, 6.0
-    sensitive_film_params = {'dz': 0.01, 'dx': dx, 'dy': dy, 'position':args.sens_plane} if args.sens_plane >0 else None
+    
+    sensitive_film_params = [{'dz': 0.0001, 'dx': dx, 'dy': dy, 'position':pos} for pos in args.sens_plane] if args.sens_plane is not None else None
     t_run_start = time.time()
     output = run_from_params(params, muons, sensitive_film_params,
                  histogram_dir=args.histogram_dir, n_steps=args.n_steps,

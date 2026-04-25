@@ -137,6 +137,8 @@ def _get_uniform_fields(
         all_fields.append(conLField)
         all_fields.append(retField)
     
+    if len(all_fields) == 0:
+        return torch.empty((0, 3), dtype=torch.float32)
     return torch.tensor(all_fields, dtype=torch.float32)
 
 
