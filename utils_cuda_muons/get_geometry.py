@@ -137,6 +137,8 @@ def get_corners_from_params(params: np.ndarray, fSC_mag: bool = False, NI_from_B
         # Update Z for next magnet
         Z += dZ
     
+    if len(all_corners) == 0:
+        return torch.empty((0, 8, 3), dtype=torch.float32)
     return torch.from_numpy(np.array(all_corners, dtype=np.float32))
 
 def _expand_corners_from_params(corners_2d: np.ndarray, dz: float, z_center: float) -> np.ndarray:
@@ -240,6 +242,20 @@ def create_z_axis_grid(corners_tensor: torch.Tensor, sz: int) -> list[list[int]]
             - cell_starts (torch.Tensor, int32): Start indices for each cell. Shape: (sz + 1,).
             - item_indices (torch.Tensor, int32): Flat array of all geometry indices, grouped by cell.
     """
+    # Handle empty or malformed inputs (e.g. torch.Size([0])) gracefully.
+    if corners_tensor.numel() == 0 or corners_tensor.ndim < 3:
+        cell_starts = torch.zeros(
+            sz + 1,
+            dtype=torch.int32,
+            device=corners_tensor.device,
+        )
+        item_indices = torch.empty(
+            0,
+            dtype=torch.int32,
+            device=corners_tensor.device,
+        )
+        return cell_starts, item_indices
+
     all_z_coords = corners_tensor[:, :, 2]
     z_min_global = all_z_coords.min()
     z_max_global = max(all_z_coords.max(),30.0)
@@ -252,6 +268,6 @@ def create_z_axis_grid(corners_tensor: torch.Tensor, sz: int) -> list[list[int]]
     cell_indices_flat, geom_indices_flat = torch.where(overlap_matrix)
     item_indices = geom_indices_flat.to(torch.int32)
     counts = torch.bincount(cell_indices_flat, minlength=sz)
-    zero_prefix = torch.tensor([0], dtype=torch.int32)
+    zero_prefix = torch.tensor([0], dtype=torch.int32, device=counts.device)
     cell_starts = torch.cat((zero_prefix, counts.cumsum(dim=0))).to(torch.int32)
     return cell_starts, item_indices

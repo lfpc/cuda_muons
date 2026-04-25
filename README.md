@@ -15,8 +15,16 @@ If you are using uzh-physik cluster, you can use the same container used for muo
 cd ..
 shell_container.sh
 ```
+`
+To be able to run the CUDA code, one needs first to install the source code. You can do that by executing the script `install_cuda.sh`. The installation currently happens locally, (by using pip install --user). If you are using the container, be sure to execute this step (inside the container) when running for the first time. You won't need to do it again, unless you wish to modify the cuda source code. If using the container described in the previous step, the local installation demands the variable LD_PRELOAD to be empty. Hence, install with the following commands:
 
-To be able to run the CUDA code, one needs first to install the source code. You can do that by executing the script `install_cuda.sh`. The installation currently happens locally, (by using pip install --user). If you are using the container, be sure to execute this step (inside the container) when running for the first time. You won't need to do it again, unless you wish to modify the cuda soruce code.
+```
+aux_ld_preload="$LD_PRELOAD"
+export LD_PRELOAD=""
+source install_cuda.sh
+export LD_PRELOAD="$aux_ld_preload"
+unset aux_ld_preload
+```
 
 ## Sampling data
 
