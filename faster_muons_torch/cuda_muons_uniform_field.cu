@@ -259,6 +259,14 @@ __global__ void cuda_propagate_muons_uniform_field_k(float* muon_data_positions,
         float3 B_uniform;
         if (current_arb8_idx >= 0) {
             B_uniform = arb8s[current_arb8_idx].B_field;
+            if (_use_symmetry) {
+                float px = muon_data_positions_this_cached[0];
+                float py = muon_data_positions_this_cached[1];
+                float sign_x = ((px >= 0.0f && py >= 0.0f) || (px <= 0.0f && py <= 0.0f)) ? 1.0f : -1.0f;
+                float sign_z = ((px >= 0.0f && py >= 0.0f) || (px <= 0.0f && py >= 0.0f)) ? 1.0f : -1.0f;
+                B_uniform.x *= sign_x;
+                B_uniform.z *= sign_z;
+            }
         } else {
             B_uniform = make_float3(0.0f, 0.0f, 0.0f);
         }

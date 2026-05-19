@@ -308,8 +308,9 @@ def _get_magnet_params(
                 os.getenv('PROJECTS_DIR', ''), 
                 'MuonsAndMatter/data/materials'
             )
-        d['NI(A)'] = snoopy.get_NI(abs(B_NI), pd.DataFrame([d]), 0, 
-                                   materials_directory=materials_directory)[0].item()
+        d['NI(A)'] = snoopy.get_NI(abs(B_NI), pd.DataFrame([d]), 0,
+                                   materials_directory=materials_directory,
+                                   use_diluted_steel=use_diluted)[0].item()
         d['NI(A)'] = min(d['NI(A)'], 4e6)
         if (B_NI > 0 and d['yoke_type'] == 'Mag3') or (B_NI < 0 and d['yoke_type'] == 'Mag1'):
             d['NI(A)'] = -d['NI(A)']
