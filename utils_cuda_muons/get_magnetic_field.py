@@ -186,6 +186,7 @@ def _get_field_map(
         print('Using field map from file', field_map_file)
         with h5py.File(field_map_file, 'r') as f:
             fields = f["B"][:]
+            d_space = f["d_space"][:].tolist()
     else:
         raise ValueError(f"Field map file {field_map_file} does not exist and simulate_fields=False")
     
@@ -278,15 +279,16 @@ def _get_magnet_params(
 ) -> dict:
     """Build parameter dict for a single magnet."""
     
-    x_yoke_1 = params[8]
-    x_yoke_2 = params[9]
+
     B_NI = params[14]
     params_m = params / 100  # Convert to meters
+    Ymgap = Ymgap / 100  # Convert to meters
     Xmgap_1 = params_m[12]
     Xmgap_2 = params_m[13]
     
     d = _get_fixed_params(yoke_type)
     d.update({
+        'diluted': int(use_diluted),
         'resol_x(m)': resol[0] / 100,
         'resol_y(m)': resol[1] / 100,
         'resol_z(m)': resol[2] / 100,
@@ -296,34 +298,36 @@ def _get_magnet_params(
         'Z_len(m)': 2 * params_m[1],
         'Xcore1(m)': params_m[2] + Xmgap_1,
         'Xvoid1(m)': params_m[2] + params_m[6] + Xmgap_2,
-        'Xyoke1(m)': params_m[2] + params_m[6] + x_yoke_1 / 100 + Xmgap_1,
+        'Xyoke1(m)': params_m[2] + params_m[6] + params_m[8] + Xmgap_1,
         'Xcore2(m)': params_m[3] + Xmgap_2,
         'Xvoid2(m)': params_m[3] + params_m[7] + Xmgap_2,
-        'Xyoke2(m)': params_m[3] + params_m[7] + x_yoke_2 / 100 + Xmgap_2,
+        'Xyoke2(m)': params_m[3] + params_m[7] + params_m[9] + Xmgap_2,
         'Ycore1(m)': params_m[4],
-        'Yvoid1(m)': params_m[4] + Ymgap / 100,
-        'Yyoke1(m)': params_m[4] + params_m[10] + Ymgap / 100,
+        'Yvoid1(m)': params_m[4] + Ymgap,
+        'Yyoke1(m)': params_m[4] + params_m[10] + Ymgap,
         'Ycore2(m)': params_m[5],
-        'Yvoid2(m)': params_m[5] + Ymgap / 100,
-        'Yyoke2(m)': params_m[5] + params_m[11] + Ymgap / 100
+        'Yvoid2(m)': params_m[5] + Ymgap,
+        'Yyoke2(m)': params_m[5] + params_m[11] + Ymgap
     })
     
     if use_B_goal and SNOOPY_AVAILABLE:
+        #Setting B_goal(T) as 0.0 make it to use the NI(A) as calculated here. To use the implementation of get_NI inside get_vector_field, set the B_goal value to B_goal
+        d['B_goal(T)'] = 0.0 #B_NI
         if materials_directory is None:
             materials_directory = os.path.join(
                 os.getenv('PROJECTS_DIR', ''), 
                 'MuonsAndMatter/data/materials'
             )
-        d['NI(A)'] = snoopy.get_NI(abs(B_NI), pd.DataFrame([d]), 0,
-                                   materials_directory=materials_directory,
-                                   use_diluted_steel=use_diluted)[0].item()
-        d['NI(A)'] = min(d['NI(A)'], 4e6)
+        d['NI(A)'] = snoopy.get_NI(abs(B_NI), pd.DataFrame([d]), 0, 
+                                   materials_directory=materials_directory, use_diluted_steel=use_diluted)[0].item()
+        d['NI(A)'] = min(d['NI(A)'], 5e6)
         if (B_NI > 0 and d['yoke_type'] == 'Mag3') or (B_NI < 0 and d['yoke_type'] == 'Mag1'):
             d['NI(A)'] = -d['NI(A)']
     elif use_diluted:
         d['NI(A)'] = B_NI
     else:
         d['NI(A)'] = abs(B_NI)
+        d['B_goal(T)'] = 0.0
 
     if use_diluted and d['yoke_type'] == 'Mag3':
         d['yoke_type'] = 'Mag1'
@@ -387,10 +391,10 @@ def _get_vector_field(magn_params: dict, materials_dir: str, use_diluted: bool =
             magn_params, 0, materials_directory=materials_dir)
     elif magn_params['yoke_type'][0] == 'Mag1':
         points, B, M_i, M_c, Q, J = snoopy.get_vector_field_mag_1(
-            magn_params, 0, materials_directory=materials_dir, use_diluted_steel=use_diluted)
+            magn_params, 0, materials_directory=materials_dir)
     elif magn_params['yoke_type'][0] == 'Mag3':
         points, B, M_i, M_c, Q, J = snoopy.get_vector_field_mag_3(
-            magn_params, 0, materials_directory=materials_dir, use_diluted_steel=use_diluted)
+            magn_params, 0, materials_directory=materials_dir)
     else:
         raise ValueError(f'Invalid yoke type - Received {magn_params["yoke_type"][0]}')
     return points, B.round(4)

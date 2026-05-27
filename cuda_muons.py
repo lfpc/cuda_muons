@@ -345,9 +345,11 @@ if __name__ == '__main__':
                         help='Plot histograms')
     parser.add_argument('-use_field_map', action='store_true',
                         help='Use FEM-simulated field map instead of uniform field (slower, requires snoopy)')
-    parser.add_argument("-params", type=str, default='tokanut_v5.txt', help="Magnet parameters configuration - name or file path. If 'input', will prompt for input.")
+    parser.add_argument("-params", type=str, default='tokanut_v6.txt', help="Magnet parameters configuration - name or file path. If 'input', will prompt for input.")
     parser.add_argument('--gpu', dest='gpu', type=int, default=0,
                         help='GPU index to use (e.g., 0, 1, ...).')
+    parser.add_argument('--save_dir', type=str, default=None,
+                        help='If provided, save output to this path (pickle file).')
     args = parser.parse_args()
     
     if args.params == 'input':
@@ -378,7 +380,7 @@ if __name__ == '__main__':
                 weight = f['weight'][: args.n_muons] if args.n_muons > 0 else f['weight'][:]
                 muons = np.stack([px, py, pz, x, y, z, pdg, weight], axis=1).astype(np.float64)
     print(f"Loaded {muons.shape[0]} muons. Took {time.time() - time0:.2f} seconds to load.")
-    dx, dy = 9.0, 6.0
+    dx, dy = 4.0, 6.0
     
     sensitive_film_params = [{'dz': 0.0001, 'dx': dx, 'dy': dy, 'position':pos} for pos in args.sens_plane] if args.sens_plane is not None else None
     t_run_start = time.time()
@@ -387,7 +389,7 @@ if __name__ == '__main__':
                  fSC_mag=False, NI_from_B=True, 
                  use_diluted=False, add_cavern=args.add_cavern,
                  field_map_file=None, use_uniform_field=not args.use_field_map,
-                 save_dir="data/outputs/outputs_cuda.pkl",
+                 save_dir=args.save_dir,
                  device=args.gpu)
     print(f"Run completed in {time.time() - t_run_start:.2f} seconds.")
     if args.plot:
