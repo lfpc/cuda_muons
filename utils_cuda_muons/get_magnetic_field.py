@@ -73,7 +73,7 @@ def get_magnetic_field_from_params(
                               fSC_mag, NI_from_B, use_diluted, cores_field)
     else:
         # Return uniform fields per ARB8
-        return _get_uniform_fields(params, fSC_mag, NI_from_B)
+        return _get_uniform_fields(params, fSC_mag, NI_from_B, use_diluted)
 
 
 # =============================================================================
@@ -84,32 +84,36 @@ def _get_uniform_fields(
     params: np.ndarray,
     fSC_mag: bool = False,
     NI_from_B: bool = True,
+    use_diluted: bool = False,
 ) -> torch.Tensor:
     """
-    Generate uniform magnetic field per ARB8 block.
-    
-    The field assignment follows the same logic as ship_muon_shield_customfield.py:
-    - For each magnet with use_symmetry=True, we have 3 components:
-      1. MainL (MiddleMagL): B = [0, ironField, 0]
-            2. TopLeft: B = [ironField/(x_yoke/x_core), 0, 0]  
-            3. RetL (MagRetL): B = [0, -ironField/(x_yoke/x_core), 0]
+        Generate uniform magnetic field per ARB8 block.
+
+        The field assignment follows ship_muon_shield.py, with dilution factors:
+        - For each magnet with use_symmetry=True, we have 3 components:
+            1. MainL (MiddleMagL): B = [0, ironField, 0]
+            2. TopLeft: B = [ironField / dilution_vertical_yoke, 0, 0]
+            3. RetL (MagRetL): B = [0, -ironField / dilution_yoke, 0]
     
     Args:
         params: Array of shape (N_magnets, 15) with magnet parameters.
         fSC_mag: Whether superconducting magnets are used.
         NI_from_B: Whether NI is derived from B (affects SC threshold).
+        use_diluted: If True, avoid dilution for negative ironField.
     
     Returns:
         Tensor of shape (N_arb8s, 3) with [Bx, By, Bz] per ARB8 in Tesla.
     """
-    SC_threshold = 3.0 if NI_from_B else 1e6
-    
     all_fields = []
     
     for magnet in params:
         dZ = magnet[1]
         dXIn = magnet[2]
+        dXOut = magnet[3]
+        dY_yokeIn = magnet[10]
+        dY_yokeOut = magnet[11]
         x_yokeIn = magnet[8]
+        x_yokeOut = magnet[9]
         NI = magnet[14]
         
         # Skip invalid magnets
@@ -117,20 +121,22 @@ def _get_uniform_fields(
             continue
 
         
-        ironField = NI
-        
-        # Use X_yoke / X_core for scaling return/corner fields
-        ratio_yoke = x_yokeIn / dXIn if dXIn != 0 else 1.0
-        
+        ironField = float(NI)
+
+        dilution_yoke = (x_yokeIn + x_yokeOut) / (dXIn + dXOut) if dXIn != 0 else 1.0
+        dilution_vertical_yoke = (dY_yokeIn + dY_yokeOut) / (dXIn + dXOut) if dXIn != 0 else 1.0
+        if ironField < 0 and not use_diluted:
+            ironField *= dilution_yoke
+
         # Field assignments matching the order from get_corners_from_params:
         # 1. MainL (MiddleMagL): vertical field in iron core
         magFieldIron = [0.0, ironField, 0.0]
-        
+
         # 2. TopLeft: horizontal field in top corner (ConLField)
-        conLField = [ironField / ratio_yoke, 0.0, 0.0]
-        
+        conLField = [ironField / dilution_vertical_yoke, 0.0, 0.0]
+
         # 3. RetL (MagRetL): vertical field in return yoke (opposite direction)
-        retField = [0.0, -ironField / ratio_yoke, 0.0]
+        retField = [0.0, -ironField / dilution_yoke, 0.0]
         
         # Append in the same order as corners are built
         all_fields.append(magFieldIron)
