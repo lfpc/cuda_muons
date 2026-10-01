@@ -18,3 +18,4 @@ data/*.npy
 data/*.h5
 experiments/plots/*
 *.egg-info
+review.md
