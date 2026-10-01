@@ -258,14 +258,15 @@ def run_from_params(params,
     is_multi_plane = isinstance(sensitive_plane, list)
     planes = sensitive_plane if is_multi_plane else [sensitive_plane]
 
-    for plane in planes:
+    for i, plane in enumerate(planes):
         muons_momenta = muons[:, :3]
         muons_positions = muons[:, 3:6]
         muons_charge = muons[:, 6]
         if muons_charge.abs().eq(13).all(): muons_charge = muons_charge.div(-13)
         assert muons_charge.abs().eq(1).all(), f"PDG IDs or charges in the input file are not correct. They should be either +/-13 or +/-1., {muons_charge.unique(return_counts=True)}" 
 
-        sensitive_plane_z = -2.0 if plane is None else plane['position']
+        # plane=None: negative z, the kernel then never stops at a plane (runs all n_steps)
+        sensitive_plane_z = -2.0 if plane is None else plane['position'] - plane['dz']/2
 
         print("Using CUDA for propagation... (server)")
         out_position, out_momenta = propagate_muons_with_cuda(
@@ -273,24 +274,27 @@ def run_from_params(params,
                 muons_momenta,
                 muons_charge,
                 environment,
-                sensitive_plane_z - plane['dz']/2,
+                sensitive_plane_z,
                 n_steps,
                 step_length,
                 use_symmetry,
-                seed,
+                seed + i,  # different random numbers for each plane
                 device,
             )
         weights = muons[:, 7] if (muons.shape[1] > 7) else None
-        if plane is not None and not return_all:
+        if plane is not None:
             in_sens_plane = (out_position[:, 0].abs() < plane['dx']/2) & \
                             (out_position[:, 1].abs() < plane['dy']/2) & \
                             (out_position[:, 2] >= (plane['position'] - plane['dz']/2))
-
-            out_momenta = out_momenta[in_sens_plane]
-            out_position = out_position[in_sens_plane]
-            muons_charge = muons_charge[in_sens_plane].int()
-            print("Number of outputs:", out_momenta.shape[0])
-            weights = weights[in_sens_plane] if weights is not None else None
+            if return_all:
+                # keep every muon; the ones that missed this plane get zero momentum (also stops them at later planes)
+                out_momenta[~in_sens_plane] = 0.0
+            else:
+                out_momenta = out_momenta[in_sens_plane]
+                out_position = out_position[in_sens_plane]
+                muons_charge = muons_charge[in_sens_plane].int()
+                print("Number of outputs:", out_momenta.shape[0])
+                weights = weights[in_sens_plane] if weights is not None else None
 
         out_position = out_position.cpu()
         out_momenta = out_momenta.cpu()
@@ -311,12 +315,7 @@ def run_from_params(params,
         if is_multi_plane:
             muons = torch.stack([output[k] for k in ('px', 'py', 'pz', 'x', 'y', 'z', 'pdg_id', 'weight')
                                  if k in output], dim=1)
-            if return_all:
-                in_sens_plane = (muons[:, 3].abs() < plane['dx']/2) & \
-                            (muons[:, 4].abs() < plane['dy']/2) & \
-                            (muons[:, 5] >= (plane['position'] - plane['dz']/2)) 
-                muons[~in_sens_plane, :3] = 0.0
-            elif muons.shape[0] == 0: break
+            if muons.shape[0] == 0: break
 
     if save_dir is not None:
         t1 = time.time()
@@ -338,7 +337,7 @@ if __name__ == '__main__':
                         help='Maximum number of muons to load from the input file; 0 means all')
     parser.add_argument('--n_steps', type=int, default=5000,
                         help='Number of steps for simulation')
-    parser.add_argument("-sens_plane", type=float, nargs='+', default=[82], help="Position(s) of the sensitive plane in z (m), 0 means no sensitive plane. Can specify multiple values separated by space.")
+    parser.add_argument("-sens_plane", type=float, nargs='+', default=[82], help="Position(s) of the sensitive plane in z (m). Can specify multiple values separated by space.")
     parser.add_argument("-remove_cavern", dest="add_cavern", action='store_false', help="Remove the cavern from simulation")
     parser.add_argument('-plot', action='store_true',
                         help='Plot histograms')
