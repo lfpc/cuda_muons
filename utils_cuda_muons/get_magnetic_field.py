@@ -211,7 +211,7 @@ def _compute_field_extents(params: np.ndarray, fSC_mag: bool, NI_from_B: bool):
     
     max_x = 0.0
     max_y = 0.0
-    length = 2 * params[:, 1].sum()  # 2 * sum of dZ values
+    length = params[:, 0].sum() + 2 * params[:, 1].sum()  # gaps + full lengths of all magnets (cm)
     
     for magnet in params:
         dZ = magnet[1]
