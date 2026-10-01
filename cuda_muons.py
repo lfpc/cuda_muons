@@ -168,7 +168,7 @@ def run_from_params(params,
         NI_from_B = True,
         use_diluted = False,
         add_cavern = True,
-        use_uniform_field = True,
+        field_mode = 'uniform',
         cores_field = 8,
         return_all = False,
         seed = 0,
@@ -184,13 +184,15 @@ def run_from_params(params,
         save_dir: If provided, save output to this path.
         n_steps: Number of propagation steps.
         fSC_mag: Whether superconducting magnets are used.
-        field_map_file: Path to field map file (only used if use_uniform_field=False).
+        field_map_file: Path to field map file. Loaded if field_mode='read_file',
+                        saved to (if given) if field_mode='simulate'.
         NI_from_B: Whether NI is derived from B (affects SC threshold).
         use_diluted: Whether to use diluted steel in FEM simulation.
         add_cavern: Whether to include cavern geometry.
-        use_uniform_field: If True, use uniform field per ARB8 block (fast).
-                          If False, use FEM-simulated field map (slow, requires snoopy).
-        cores_field: Number of CPU cores for field simulation (only if use_uniform_field=False).
+        field_mode: 'uniform' (uniform field per ARB8 block, fast),
+                    'read_file' (load field map from field_map_file),
+                    'simulate' (FEM-simulated field map, slow, requires snoopy).
+        cores_field: Number of CPU cores for field simulation (only if field_mode='simulate').
         return_all: If True, return all muons; if False, filter by sensitive plane.
         seed: Random seed for propagation.
         device: Device to run on ('cuda' or GPU index).
@@ -208,20 +210,18 @@ def run_from_params(params,
     corners = get_corners_from_params(params, fSC_mag=fSC_mag, NI_from_B=NI_from_B)
     cavern = get_cavern_from_params(add_cavern=add_cavern)
     
-    # Get magnetic field: either uniform (fast) or simulated field map (slow)
-    simulate_fields = not use_uniform_field
+    # Get magnetic field: uniform (fast), read from file, or simulated field map (slow)
     mag_field = get_magnetic_field_from_params(
         params,
-        simulate_fields=simulate_fields,
-        field_map_file=field_map_file if not use_uniform_field else None,
+        field_mode=field_mode,
+        field_map_file=field_map_file,
         fSC_mag=fSC_mag,
         NI_from_B=NI_from_B,
         use_diluted=use_diluted,
         cores_field=cores_field,
     )
     
-    mode_str = "uniform field" if use_uniform_field else "field map"
-    print(f"Geometry + {mode_str} setup took {time.time() - t0:.2f} seconds.")
+    print(f"Geometry + field ({field_mode}) setup took {time.time() - t0:.2f} seconds.")
 
     use_symmetry = True
     
@@ -342,14 +342,20 @@ if __name__ == '__main__':
     parser.add_argument("-remove_cavern", dest="add_cavern", action='store_false', help="Remove the cavern from simulation")
     parser.add_argument('-plot', action='store_true',
                         help='Plot histograms')
-    parser.add_argument('-use_field_map', action='store_true',
-                        help='Use FEM-simulated field map instead of uniform field (slower, requires snoopy)')
+    parser.add_argument('-field_mode', type=str, default='uniform', choices=['uniform', 'read_file', 'simulate'],
+                        help="Magnetic field: 'uniform' (uniform field per ARB8 block), 'read_file' (load field map "
+                             "from -field_file), 'simulate' (FEM field map with snoopy, slow; saved to -field_file if given)")
+    parser.add_argument('-field_file', type=str, default=None,
+                        help='Field map h5 file (datasets "B" and "d_space"). Read with -field_mode read_file, '
+                             'written with -field_mode simulate.')
     parser.add_argument("-params", type=str, default='tokanut_v6.txt', help="Magnet parameters configuration - name or file path. If 'input', will prompt for input.")
     parser.add_argument('--gpu', dest='gpu', type=int, default=0,
                         help='GPU index to use (e.g., 0, 1, ...).')
     parser.add_argument('--save_dir', type=str, default=None,
                         help='If provided, save output to this path (pickle file).')
     args = parser.parse_args()
+    if args.field_mode == 'read_file' and args.field_file is None:
+        parser.error("-field_mode read_file requires -field_file")
     
     if args.params == 'input':
         params_input = input("Enter the params as a Python list (e.g., [1.0, 2.0, 3.0]): ")
@@ -387,7 +393,7 @@ if __name__ == '__main__':
                  histogram_dir=args.histogram_dir, n_steps=args.n_steps,
                  fSC_mag=False, NI_from_B=True, 
                  use_diluted=False, add_cavern=args.add_cavern,
-                 field_map_file=None, use_uniform_field=not args.use_field_map,
+                 field_map_file=args.field_file, field_mode=args.field_mode,
                  save_dir=args.save_dir,
                  device=args.gpu)
     print(f"Run completed in {time.time() - t_run_start:.2f} seconds.")

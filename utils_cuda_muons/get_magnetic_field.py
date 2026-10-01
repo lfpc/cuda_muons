@@ -32,7 +32,7 @@ RESOL_DEF = (2, 2, 5)  # Default resolution in cm (x, y, z)
 
 def get_magnetic_field_from_params(
     params: np.ndarray,
-    simulate_fields: bool = False,
+    field_mode: str = 'uniform',
     field_map_file: str = None,
     fSC_mag: bool = False,
     NI_from_B: bool = True,
@@ -47,29 +47,33 @@ def get_magnetic_field_from_params(
                 Each row: [zgap, dZ, dXIn, dXOut, dYIn, dYOut, gapIn, gapOut,
                           x_yokeIn, x_yokeOut, dY_yokeIn, dY_yokeOut,
                           midGapIn, midGapOut, NI]
-        simulate_fields: If True, run FEM simulation and return field map dict.
-        field_map_file: Path to save/load field map. If exists and simulate_fields=False,
-                       loads from file.
+        field_mode: How to obtain the field:
+                    'uniform'   - uniform field per ARB8 block (fast, field_map_file ignored).
+                    'read_file' - load field map from field_map_file (never simulates).
+                    'simulate'  - run FEM simulation with snoopy; saved to field_map_file if given.
+        field_map_file: Path to load (read_file) or save (simulate) the field map.
         fSC_mag: Whether superconducting magnets are used.
         NI_from_B: Whether NI is derived from B (affects SC threshold).
         use_diluted: Whether to use diluted steel.
         cores_field: Number of CPU cores for field simulation.
     
     Returns:
-        If simulate_fields=True or field_map_file is provided:
+        If field_mode is 'read_file' or 'simulate':
             Dict with 'B' (field array), 'range_x', 'range_y', 'range_z'
-        Otherwise:
+        If field_mode is 'uniform':
             Tensor of shape (N_arb8s, 3) with uniform [Bx, By, Bz] per ARB8.
             With use_symmetry=True, returns 3 fields per magnet (MainL, TopLeft, RetL).
     """
+    if field_mode not in ('uniform', 'read_file', 'simulate'):
+        raise ValueError(f"Unknown field_mode '{field_mode}'. Must be 'uniform', 'read_file' or 'simulate'.")
     params = np.asarray(params)
     if params.ndim == 1:
         params = params.reshape(1, -1)
     params = np.round(params, 2)
     
     # If simulating fields or loading from file, return field map dict
-    if simulate_fields or field_map_file is not None:
-        return _get_field_map(params, simulate_fields, field_map_file, 
+    if field_mode in ('read_file', 'simulate'):
+        return _get_field_map(params, field_mode, field_map_file,
                               fSC_mag, NI_from_B, use_diluted, cores_field)
     else:
         # Return uniform fields per ARB8
@@ -154,25 +158,21 @@ def _get_uniform_fields(
 
 def _get_field_map(
     params: np.ndarray,
-    simulate_fields: bool,
+    field_mode: str,
     field_map_file: str,
     fSC_mag: bool,
     NI_from_B: bool,
     use_diluted: bool,
     cores_field: int,
 ) -> Dict:
-    """Get field map from simulation or file."""
+    """Get field map from simulation (field_mode='simulate') or file (field_mode='read_file')."""
     
-    # Calculate d_space extents
-    d_space, resol = _compute_field_extents(params, fSC_mag, NI_from_B)
-    
-    # Determine if we need to simulate or can load from file
-    should_simulate = simulate_fields or (field_map_file is not None and not exists(field_map_file))
-    
-    if should_simulate:
+    if field_mode == 'simulate':
         if not SNOOPY_AVAILABLE:
             raise ImportError("snoopy module not available. Cannot simulate fields. "
-                             "Install snoopy or provide a pre-computed field_map_file.")
+                             "Install snoopy or use field_mode='read_file' with a pre-computed field_map_file.")
+        # Calculate d_space extents: rows of [min, max, step] in cm
+        d_space = _compute_field_extents(params, fSC_mag, NI_from_B)
         fields = _simulate_field(
             params, 
             file_name=field_map_file,
@@ -182,27 +182,31 @@ def _get_field_map(
             cores=cores_field,
             use_diluted=use_diluted
         )
-    elif field_map_file is not None and exists(field_map_file):
+    else:
+        if field_map_file is None or not exists(field_map_file):
+            raise FileNotFoundError(f"field_mode='read_file' requires an existing field_map_file. Got {field_map_file}")
         print('Using field map from file', field_map_file)
         with h5py.File(field_map_file, 'r') as f:
             fields = f["B"][:]
             d_space = f["d_space"][:].tolist()
-    else:
-        raise ValueError(f"Field map file {field_map_file} does not exist and simulate_fields=False")
+        _check_d_space(d_space, len(fields), field_map_file)
     
     # Return in the format expected by propagate_muons_with_cuda
     mag_dict = {
         'B': fields,
-        'range_x': [d_space[0][0], d_space[0][1], resol[0]],
-        'range_y': [d_space[1][0], d_space[1][1], resol[1]],
-        'range_z': [d_space[2][0], d_space[2][1], resol[2]]
+        'range_x': list(d_space[0]),
+        'range_y': list(d_space[1]),
+        'range_z': list(d_space[2])
     }
     
     return mag_dict
 
 
 def _compute_field_extents(params: np.ndarray, fSC_mag: bool, NI_from_B: bool):
-    """Compute the spatial extents for field simulation."""
+    """Compute the spatial extents for field simulation.
+
+    Returns d_space as ((x_min, x_max, dx), (y_min, y_max, dy), (z_min, z_max, dz)) in cm.
+    """
     SC_threshold = 3.0 if NI_from_B else 1e6
     
     max_x = 0.0
@@ -239,13 +243,29 @@ def _compute_field_extents(params: np.ndarray, fSC_mag: bool, NI_from_B: bool):
                    dYOut + dY_yokeOut + Ymgap)
     
     resol = RESOL_DEF
-    max_x = int((max_x // resol[0]) * resol[0])
-    max_y = int((max_y // resol[1]) * resol[1])
-    d_space = ((0, max_x + 50), (0, max_y + 50), 
-               (-50, int(((length + 200) // resol[2]) * resol[2])))
+    d_space = (_snap_to_grid(0, max_x + 50, resol[0]),
+               _snap_to_grid(0, max_y + 50, resol[1]),
+               _snap_to_grid(-50, length + 200, resol[2]))
     
-    return d_space, resol
+    return d_space
 
+
+def _snap_to_grid(lo, hi, step):
+    """Row [lo, hi', step] of d_space, with hi' <= hi the largest bound such that (hi' - lo) is a whole number of steps."""
+    n = int(np.floor((hi - lo) / step + 1e-6))  # tolerance against float noise, e.g. 7.0 // 0.1 = 69
+    return (lo, round(lo + n * step, 6), step)
+
+
+def _check_d_space(d_space, n_points, file_name):
+    """Check that each d_space row [min, max, step] spans a whole number of steps and matches the number of points in B."""
+    for axis, row in zip('xyz', d_space):
+        n_steps = (row[1] - row[0]) / row[2]
+        if abs(n_steps - round(n_steps)) > 1e-3:
+            raise ValueError(f"Field map {file_name}: {axis} range [{row[0]}, {row[1]}] is not a whole number of steps "
+                             f"of {row[2]} ({n_steps:.4f}). Geant4 and CUDA would read different grid positions.")
+    n_expected = np.prod([int(round((row[1] - row[0]) / row[2])) + 1 for row in d_space])
+    if n_expected != n_points:
+        raise ValueError(f"Field map {file_name} has {n_points} points, but d_space={d_space} implies {n_expected}.")
 
 def _get_fixed_params(yoke_type: str = 'Mag1', mesh_size_parameter: float = 0.15) -> dict:
     """Get fixed parameters for magnet simulation."""
@@ -432,7 +452,8 @@ def _run_magnets(
         (d_space[0][0], d_space[1][0], d_space[2][0]), 
         (d_space[0][1], d_space[1][1], d_space[2][1])
     )
-    points = _construct_grid(limits=limits_quadrant, resol=RESOL_DEF)
+    resol = (d_space[0][2], d_space[1][2], d_space[2][2])
+    points = _construct_grid(limits=limits_quadrant, resol=resol)
     
     # Split parameters for each magnet
     params_split = [
@@ -463,7 +484,7 @@ def _simulate_field(
     params: np.ndarray,
     Z_init: float = 0,
     fSC_mag: bool = True,
-    d_space: tuple = ((0., 400.), (0., 400.), (-100, 300.)),
+    d_space: tuple = ((0., 400., RESOL_DEF[0]), (0., 400., RESOL_DEF[1]), (-100, 300., RESOL_DEF[2])),
     NI_from_B: bool = True,
     file_name: str = None,
     cores: int = 1,
@@ -524,7 +545,8 @@ def _simulate_field(
     
     # Save to file if requested
     if file_name is not None:
-        os.makedirs(os.path.dirname(file_name), exist_ok=True)
+        if os.path.dirname(file_name):
+            os.makedirs(os.path.dirname(file_name), exist_ok=True)
         all_params.to_csv(
             os.path.join(os.path.dirname(file_name), 'magnet_params.csv'), 
             index=False
@@ -533,12 +555,7 @@ def _simulate_field(
         t_save = time()
         with h5py.File(file_name, "w") as f:
             f.create_dataset("B", data=fields['B'].astype(np.float16), compression=None)
-            d_space_arr = np.array([
-                [d_space[0][0], d_space[0][1], RESOL_DEF[0]],
-                [d_space[1][0], d_space[1][1], RESOL_DEF[1]],
-                [d_space[2][0], d_space[2][1], RESOL_DEF[2]]
-            ], dtype=np.int16)
-            f.create_dataset("d_space", data=d_space_arr, compression=None)
+            f.create_dataset("d_space", data=np.array(d_space, dtype=np.float32), compression=None)
         
         print(f'Fields saved to {file_name} ({time() - t_save:.2f} sec)')
     
