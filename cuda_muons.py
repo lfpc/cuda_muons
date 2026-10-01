@@ -309,9 +309,8 @@ def run_from_params(params,
 
         # For multi-plane: prepare muons for next iteration
         if is_multi_plane:
-            muons = torch.stack([output['px'], output['py'], output['pz'],
-                                  output['x'], output['y'], output['z'],
-                                  output['pdg_id'], output['weight']], dim=1)
+            muons = torch.stack([output[k] for k in ('px', 'py', 'pz', 'x', 'y', 'z', 'pdg_id', 'weight')
+                                 if k in output], dim=1)
             if return_all:
                 in_sens_plane = (muons[:, 3].abs() < plane['dx']/2) & \
                             (muons[:, 4].abs() < plane['dy']/2) & \
