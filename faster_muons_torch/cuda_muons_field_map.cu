@@ -288,6 +288,8 @@ void propagate_muons_with_alias_sampling_cuda(
     cudaMemcpyToSymbol(LOG_START, &log_start_val, sizeof(float));
     cudaMemcpyToSymbol(LOG_STOP, &log_stop_val, sizeof(float));
     cudaMemcpyToSymbol(INV_LOG_STEP, &inv_log_step_val, sizeof(float));
+    const int n_momentum_bins_val = static_cast<int>(N_momentum_bins);
+    cudaMemcpyToSymbol(N_MOMENTUM_BINS, &n_momentum_bins_val, sizeof(int));
 
     const int N_arbs = arb8s.size(0);
     const bool has_arb8 = (N_arbs > 0); // Check if there are any ARB8s to process. If not, we can skip the ARB8 processing and just set the device pointer to nullptr.

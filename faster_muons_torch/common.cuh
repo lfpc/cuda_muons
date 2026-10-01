@@ -70,6 +70,7 @@ static __constant__ float BIG_STEP = 0.2f;
 static __constant__ float LOG_START;
 static __constant__ float LOG_STOP;
 static __constant__ float INV_LOG_STEP;
+static __constant__ int N_MOMENTUM_BINS;  // number of momentum rows in the histograms
 static __device__ __constant__ bool _use_symmetry = true;
 static __constant__ FieldMeta d_field_meta;
 static __constant__ ZGridMeta d_grid_meta;
@@ -148,7 +149,9 @@ static __device__ __forceinline__ int get_first_bin(float num) {
     num = fmaxf(0.18f, num);
     num = fminf(400.0f, num);
     int index = static_cast<int>((log10f(num) - LOG_START) * INV_LOG_STEP);
-    return index;
+    // num = 400 (any p >= 400 after the clamp) gives index N_MOMENTUM_BINS, one past the last row:
+    // use the last row instead
+    return min(max(index, 0), N_MOMENTUM_BINS - 1);
 }
 
 static __device__ __forceinline__ float3 getFieldAt(const float *field,
